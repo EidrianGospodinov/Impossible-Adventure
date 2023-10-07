@@ -38,6 +38,7 @@ void printNPC(NPC* npc) {
 }
 void MoveNPC(NPC* npc, Town* newTown) {
 	npc->home->population--;
+	newTown->population++;
 	npc->home = newTown;
 }
 
@@ -49,8 +50,10 @@ int main() {
 	printNPC(npc1);
 	MoveNPC(npc1, town2);
 
-	printNPC(npc1);
-	cout << town1->population;
+	printNPC(npc1);//shows npc in town 2
+	
+	//cout << town1->population<<endl<<town2->population;//shows the population of town1 and 2 with the updated population
+	
 
 
 }
