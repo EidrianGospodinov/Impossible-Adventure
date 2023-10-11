@@ -49,8 +49,29 @@ void insertAfter(int newData, DListNode* n) {
 	newNode->previous = n;
 
 	n->next = newNode;//point the old node to the new node
+	
+	if(newNode->next!=nullptr)				//important withouth setting up the next prev.
+		newNode->next->previous = newNode;  //all the data after the removal will dissapear as well
+											//because thhe point will point at the first node from where you start
+											//aka: 0 from "makeNode" function
 
 	}
+	
+}
+void remove(DListNode* n) {
+	if (n != nullptr) {
+
+		if (n->next != nullptr) {
+			n->next->previous = n->previous;
+		}
+		if (n->previous != nullptr) {
+			n->previous->next = n->next;
+		}
+		delete n;
+	}
+
+
+	
 }
 
 int main() {
@@ -58,9 +79,11 @@ int main() {
 	insertAfter(1, first);
 	insertAfter(3, first);
 	insertAfter(4, first);
+	/*insertAfter(5, first);*/
 	printList(first);  // Should print "0 4 3 1"
-	DListNode* n = find(1, first);
-	insertAfter(9, n);
+	DListNode* n = find(3, first);
+	remove(n);
+	//insertAfter(7, n);
 	printList(first);  // Should print "0 4 3 2 1"
 	// Try adding some more tests
 }
