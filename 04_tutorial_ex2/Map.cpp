@@ -1,7 +1,11 @@
 #include "Map.h"
 
-void Map::GenerateMap(int Xplayer, int Yplayer)
+
+
+
+void Map::GenerateMap(int Xplayer, int Yplayer, GameManager* manager)
 {
+	
 	for (int y = 0; y < HEIGHT;y++) {
 
 		for (int x = 0; x < WIDTH; x++) {
@@ -9,8 +13,11 @@ void Map::GenerateMap(int Xplayer, int Yplayer)
 				cout << "@";
 			}
 			else if (Xplayer<0||Xplayer>=WIDTH || Yplayer<0 || Yplayer>=HEIGHT) {
-				terminate();
+				//terminate();
 				/*throw "Player out of Map";*/
+				manager->setGameOn();
+				manager->finalMessage = "Game ends by escaping the area";
+				return;
 			}
 			else
 			cout << ".";
