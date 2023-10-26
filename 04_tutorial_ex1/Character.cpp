@@ -18,3 +18,22 @@ void Character::displayIngredients()
 		cout << i.first << " - " << i.second << endl;
 	}
 }
+
+void Character::levelUp()
+{
+	level++;
+}
+
+Potion* Character::brew(PotionType* type)
+{
+	for (Ingredient* i : type->getIngredient()) {
+		if (inventory[i] <= 0)
+			return nullptr;
+	}
+	for (Ingredient* i : type->getIngredient()) {
+		inventory[i]--;
+
+	}
+		return new Potion(type, level);
+	
+}

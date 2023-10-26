@@ -6,5 +6,5 @@ Ingredient::Ingredient()
 
 void Ingredient::addIngredient(string i)
 {
-	ingredients.push_back(i);
+	/*ingredients.push_back(i);*/
 }

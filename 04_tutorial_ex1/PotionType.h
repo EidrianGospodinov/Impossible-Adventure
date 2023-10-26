@@ -11,9 +11,14 @@ using std::list;
 class PotionType
 {
 	string name;
-	list<Ingredient>ingredients;
+	list<Ingredient*>ingredients;
 public:
 	PotionType();
+
+	void addInredients(Ingredient *i);
+
+	list<Ingredient*>getIngredient();
+	void getName();
 
 };
 

@@ -8,7 +8,7 @@ using std::list;
 class Ingredient
 {
 	string name;
-	list<string>ingredients;
+	
 
 public:
 	Ingredient();

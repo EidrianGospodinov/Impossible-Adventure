@@ -2,6 +2,7 @@
 #include <iostream>
 #include<string>
 #include<map>
+#include "Potion.h"
 
 
 using std::string;
@@ -21,5 +22,11 @@ public:
 	void collectIngredient(Ingredient* i);
 
 	void displayIngredients();
+
+	void levelUp();
+
+	Potion* brew(PotionType* type);
+
+	
 };
 
