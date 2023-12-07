@@ -1,14 +1,16 @@
 #pragma once
 #include <memory>
+#include <iostream>
 using std::shared_ptr;
 using std::make_shared;
+using std::cout;
 //using namespace std;
 
 
 class ListNode
 {
 	int data;
-	shared_ptr<ListNode> next=make_shared<ListNode>();
+	shared_ptr<ListNode> next;
 
 public:
 	int getData() {
@@ -19,18 +21,12 @@ public:
 	}
 
 
-	ListNode() {
-		data=-1;
-		next = nullptr;
+	ListNode();
 
-	}
+	void setValue(int value);
 
-	void setValue(int value) {
-		data = value;
-		
-		
-		
 
-	}
+
+
 };
 
