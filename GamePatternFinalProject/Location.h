@@ -1,5 +1,7 @@
 #pragma once
-#include "Item.h";
+#include <iostream>
+#include "Item.h"
+
 #include<string>
 #include<list>
 #include<map>
@@ -7,6 +9,8 @@
 using std::string;
 using std::list;
 using std::map;
+
+
 class Location
 {
 	int number;

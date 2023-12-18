@@ -4,15 +4,17 @@
 #include "Item.h"
 #include "Location.h"
 
-#include<vector>
+#include<list>
 
-using std::vector;
 
+using std::list;
+using std::cout;
+using std::endl;
 
 class Player
 {
-	static Location* location;
-	static vector<Item*> inventory;
+	static Location location;
+	static list<Item*> inventory;
 	static int steps;
 
 public:
