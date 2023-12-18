@@ -18,9 +18,10 @@ bool Player::hasItem(Item* i)
 
 bool Player::takeItem(Item* i)
 {
+    if(i!=nullptr)
     inventory.push_back(i);
 
-    return hasItem(i);
+    return Player::hasItem(i);
 }
 
 bool Player::dropItem(Item* i)
@@ -29,7 +30,7 @@ bool Player::dropItem(Item* i)
     {
         inventory.remove(i);
     }
-    return hasItem(i);
+    return Player::hasItem(i);
 }
 
 bool Player::openItem(Item* i)

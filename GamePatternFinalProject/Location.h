@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Item.h"
 
+
 #include<string>
 #include<list>
 #include<map>
@@ -24,6 +25,7 @@ class Location
 
 public:
 	void print();
+	bool hasItem(Item* i);
 	bool take_item(Item* i);
 	void drop_item(Item* i);
 	Item* getKey(string& direction);

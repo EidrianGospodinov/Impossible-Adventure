@@ -18,11 +18,11 @@ class Player
 	static int steps;
 
 public:
-	bool hasItem(Item* i);
-	bool takeItem(Item* i);
-	bool dropItem(Item* i);
-	bool openItem(Item* i);
-	void printStatus();
+	static bool hasItem(Item* i);
+	static bool takeItem(Item* i);//not the best name to add item to inventory
+	static bool dropItem(Item* i);
+	static bool openItem(Item* i);
+	static void printStatus();
 	
 };
 
