@@ -11,18 +11,18 @@ using std::list;
 using std::cout;
 using std::endl;
 
-class Player
+class Player//all the members of the class are static so there to indicate there is only one player
 {
-	static Location location;
-	static list<Item*> inventory;
-	static int steps;
+	static Location location;//keep track of player location
+	static list<Item*> inventory;//store items in the player inventory
+	static int steps;//track number of steps taken
 
 public:
-	static bool hasItem(Item* i);
-	static bool takeItem(Item* i);//not the best name to add item to inventory
-	static bool dropItem(Item* i);
-	static bool openItem(Item* i);
-	static void printStatus();
+	static bool hasItem(Item* i); // Function to check if an item is in the player's inventory
+	static bool takeItem(Item* i);// Function to add an item to the player's inventory
+	static bool dropItem(Item* i);// Function to remove an item from the player's inventory
+	static bool openItem(Item& i);// Function to handle opening an item
+	static void printStatus(); // Function to print the player's current status, including location
 	
 };
 

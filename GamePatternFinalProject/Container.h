@@ -6,13 +6,16 @@
 using std::list;
 class Container: public Item
 {
-	bool isOpened;
-	Item *key_item;
-	list<Item*> contents;
+	Item *key_item;//item needed to open container
+	list<Item*> contents;// list of all the contents of the container
 	
+	void addToInventory();//private function that is used inside the open function to add to the inventory the content of the container if successfull
 public:
-	bool open();
-	void addToInventory();
+	bool isOpened;//tracks if the container is opened
+	bool open();//function to open the container, returns true if successfull 
+
+	//constructor
+	Container(string name,string descr,Item *item, list<Item*>cont);
 
 
 };
