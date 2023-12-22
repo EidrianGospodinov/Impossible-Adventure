@@ -26,6 +26,11 @@ Container::Container(string name, string descr, Item* item, list<Item*> cont): I
 {
 }
 
+Container::~Container()
+{
+    delete(this);
+}
+
 void Container::addToInventory()
 {
     for (Item* i : contents) {

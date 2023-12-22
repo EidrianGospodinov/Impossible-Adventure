@@ -16,3 +16,8 @@ Item::Item(string n, string d) : name(n), description(d)
 {
 
 }
+
+Item::~Item()
+{
+	delete(this);
+}

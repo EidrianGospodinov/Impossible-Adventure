@@ -14,6 +14,7 @@ using std::map;
 
 class Location
 {
+	
 	int number;//identifier for the the location
 	//string direction;//it looks needed
 	string name;//name of the locstion
@@ -26,6 +27,7 @@ class Location
 public:
 	//contructor
 	Location(int defaultLocation, string n, string descr, list<Item*>cont);//will add the last 2 later
+	~Location();
 	void print();//prints the information about the location
 	bool hasItem(Item* i);//check if an item is present in the location
 	bool take_item(Item* i); //remove an item from the location when taken by the player

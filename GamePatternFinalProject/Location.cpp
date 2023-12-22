@@ -1,5 +1,7 @@
 #include "Location.h"
 
+
+
 void Location::print()
 {
 	std::cout << "About "<<name<<": \n"<<description<<"\n"<<"And here is a list of the current items on this location";
@@ -23,7 +25,7 @@ bool Location::hasItem(Item* i)
 	return false;
 }
 
-Location::Location(int defaultLocation, string n, string descr, list<Item*> cont):number(defaultLocation, name(n),description(descr))
+Location::Location(int defaultLocation, string n, string descr, list<Item*> cont):number(defaultLocation), name(n),description(descr)
 {
 }
 
@@ -32,6 +34,11 @@ bool Location::take_item(Item* i)
 	//removes item from the location
 	contents.remove(i);
 	return Location::hasItem(i);
+}
+
+Location::~Location()
+{
+	delete(this);
 }
 
 void Location::drop_item(Item* i)

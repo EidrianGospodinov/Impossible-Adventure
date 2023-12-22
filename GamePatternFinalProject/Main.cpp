@@ -32,14 +32,14 @@ void splitWord(string input) {
 }
 
 int main() {
-
+	
 	//bool game = true;
 	//Player *player= new Player;
 	//Item *item= new Item;
 	//
 	//string input;
 	//std::vector<string> words;
-	
+
 
 	/*while (game) {
 
@@ -52,7 +52,7 @@ int main() {
 	//test functionallity using the datafile
 
 	//the key for the strongbox
-	Item *screwDriver = new Item("Screwdriver", "screw");
+	Item* screwDriver = new Item("Screwdriver", "screw");
 
 	//the items inside the strongbox
 	Item* redKey = new Item("redKey", "key that is red");
@@ -64,23 +64,36 @@ int main() {
 	Container* Strongbox = new Container("Strongbox", "A sturdy box", screwDriver, content);
 
 	//player
-	Player *player = new Player;
-	player->takeItem(screwDriver);
+	//player->takeItem(screwDriver);
 
-	//test Item functions
-	cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
-	
-	cout<<"Is open: "<<Strongbox->isOpened;
-	Strongbox->open();
-	cout << "Is open: " << Strongbox->isOpened << endl;
-	player->printStatus();
-	cout << endl << endl;
+	////test Item functions
+	//cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
+	//
+	//cout<<"Is open: "<<Strongbox->isOpened;
+	//Strongbox->open();
+	//cout << "Is open: " << Strongbox->isOpened << endl;
+	//player->printStatus();
+	//cout << endl << endl;
 
 	//locations
-	
-	
+	list<Item*>loc1Contents;
+	loc1Contents.push_back(Strongbox);
+	loc1Contents.push_back(screwDriver);
+	Location* loc1 = new Location(1, "Outside building", "You are standing in front of a small building.", loc1Contents);
+
+	Player* player = new Player();
 
 
+
+	//loc2
+	Item* rubberDuck = new Item("rubber duck", "Duck made of rubber");
+	list<Item*> loc2Contents{ rubberDuck };
+	Location* loc2 = new Location(2, "inside Building", "You are inside a building, a well house for a largespring", loc2Contents);
+
+	player->printStatus();
+
+
+	
 
 
 }

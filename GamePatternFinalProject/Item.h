@@ -15,6 +15,7 @@ public:
 
 	//constructor
 	Item(string n, string d);
+	~Item();
 
 
 };

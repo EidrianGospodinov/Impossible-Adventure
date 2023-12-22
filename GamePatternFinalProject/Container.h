@@ -17,6 +17,6 @@ public:
 	//constructor
 	Container(string name,string descr,Item *item, list<Item*>cont);
 
-
+	~Container();
 };
 
