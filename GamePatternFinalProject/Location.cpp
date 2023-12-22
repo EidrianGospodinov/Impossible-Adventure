@@ -32,6 +32,7 @@ Location::Location(int defaultLocation, string n, string descr, list<Item*> cont
 bool Location::take_item(Item* i)
 {
 	//removes item from the location
+	if(i!=nullptr)
 	contents.remove(i);
 	return Location::hasItem(i);
 }
@@ -51,6 +52,7 @@ string Location::getName()
 void Location::drop_item(Item* i)
 {
 	//add item to the location
+	if(i!=nullptr)
 	contents.push_back(i);
 	
 }

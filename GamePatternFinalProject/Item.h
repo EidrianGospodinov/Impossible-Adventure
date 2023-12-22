@@ -4,7 +4,7 @@ using std::string;
 class Item
 {
 	//stores items name and description
-	string name;
+	string name="";
 	string description;
 	bool canBeOpen = false;
 

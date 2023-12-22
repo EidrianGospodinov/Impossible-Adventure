@@ -64,16 +64,8 @@ int main() {
 	Container* Strongbox = new Container("Strongbox", "A sturdy box", screwDriver, content);
 
 	//player
-	//player->takeItem(screwDriver);
-
-	////test Item functions
-	//cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
-	//
-	//cout<<"Is open: "<<Strongbox->isOpened;
-	//Strongbox->open();
-	//cout << "Is open: " << Strongbox->isOpened << endl;
-	//player->printStatus();
-	//cout << endl << endl;
+	Player* player = new Player();
+	player->takeItem(screwDriver);
 	//locations
 	list<Item*>loc1Contents;
 	loc1Contents.push_back(Strongbox);
@@ -89,8 +81,16 @@ int main() {
 	Location* loc2 = new Location(2, "inside Building", "You are inside a building, a well house for a largespring", loc2Contents);
 
 
-	Player* player = new Player();
 	player->changeLocation(loc1);
+
+	////test Item functions
+	cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
+	
+	cout<<"Is open: "<<Strongbox->isOpened;
+	Strongbox->open();
+	cout << "Is open: " << Strongbox->isOpened << endl;
+	player->printStatus();
+	cout << endl << endl;
 	Player::printStatus();
 
 

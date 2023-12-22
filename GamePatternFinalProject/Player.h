@@ -20,7 +20,7 @@ class Player//all the members of the class are static so there to indicate there
 	static int steps;//track number of steps taken
 
 public:
-	
+	~Player();
 	static void changeLocation(Location* loc);
 	static bool hasItem(Item* i); // Function to check if an item is in the player's inventory
 	static bool takeItem(Item* i);// Function to add an item to the player's inventory
