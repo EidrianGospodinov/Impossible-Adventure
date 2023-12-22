@@ -26,6 +26,7 @@ class Location
 
 public:
 	//contructor
+	string getName();
 	Location(int defaultLocation, string n, string descr, list<Item*>cont);//will add the last 2 later
 	~Location();
 	void print();//prints the information about the location

@@ -74,14 +74,12 @@ int main() {
 	//cout << "Is open: " << Strongbox->isOpened << endl;
 	//player->printStatus();
 	//cout << endl << endl;
-
 	//locations
 	list<Item*>loc1Contents;
 	loc1Contents.push_back(Strongbox);
 	loc1Contents.push_back(screwDriver);
 	Location* loc1 = new Location(1, "Outside building", "You are standing in front of a small building.", loc1Contents);
 
-	Player* player = new Player();
 
 
 
@@ -90,7 +88,10 @@ int main() {
 	list<Item*> loc2Contents{ rubberDuck };
 	Location* loc2 = new Location(2, "inside Building", "You are inside a building, a well house for a largespring", loc2Contents);
 
-	player->printStatus();
+
+	Player* player = new Player();
+	player->changeLocation(loc1);
+	Player::printStatus();
 
 
 	

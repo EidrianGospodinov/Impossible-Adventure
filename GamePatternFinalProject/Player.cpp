@@ -5,6 +5,8 @@ Location* Player::location = nullptr;
 int Player::steps;
 
 
+
+
 void Player::changeLocation(Location* loc)
 {
     if (loc != nullptr)
@@ -58,9 +60,18 @@ void Player::printStatus()
 {
     //print the player status and location
     cout << "Player location: ";
-    location->print();
+    //get the name of the location
+    
+    string n=location->getName();
+    cout << n<<endl;//if it works dont touch!
+
+    //prints the items from the inventory
+    cout << "Inventory items: ";
     for (auto i : inventory)
         cout << i->getName() << endl;
+
+    //prints the steps taken
+    cout << "Steps taken: " << steps << endl;
 
 
 }

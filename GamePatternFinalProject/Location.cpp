@@ -41,6 +41,13 @@ Location::~Location()
 	delete(this);
 }
 
+string Location::getName()
+{
+	if (this != nullptr)
+	return name;
+	
+}
+
 void Location::drop_item(Item* i)
 {
 	//add item to the location
