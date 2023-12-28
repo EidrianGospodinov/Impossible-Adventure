@@ -20,9 +20,9 @@ void Player::changeLocation(Location* loc)
 
 
 
-Location Player::getLocation()
+Location *Player::getLocation()
 {
-    return *location;
+    return location;
 }
 
 bool Player::hasItem(Item* i)

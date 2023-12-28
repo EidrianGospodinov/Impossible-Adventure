@@ -1,5 +1,10 @@
 #include "GameManager.h"
 bool GameManager::gameOn;
+
+GameManager::GameManager(Player* p) :player(p)
+{
+	location = player->getLocation();
+}
 void GameManager::stopGame()
 {
 	gameOn = false;
@@ -15,7 +20,7 @@ void GameManager::splitWord(string input) {
 
 
 	string keyword;
-	string desc;
+	string keyItem;
 
 
 	bool iskeyword = true;
@@ -32,13 +37,47 @@ void GameManager::splitWord(string input) {
 		}
 		else
 		{
-			desc += input[i];
+			keyItem += input[i];
 		}
 
 		i++;
 	}
-	cout << keyword << endl;
-	if (desc != "")
-		cout << desc;
+	
+	if (keyItem != " ")
+		checkSoloKeyword(keyword, location, player);
+	else {
+		for (auto i : location->getContents()) {
+			if (i->getName() == keyItem)
+			{
+				
+				checkKeywordItem(keyword, i, location, player);
+			}
+		}
+	}
 
 }
+void GameManager::checkSoloKeyword(string keyWord, Location* l, Player* p) {
+	if (keyWord == "LOOK") {
+		l->print();
+	}
+
+	else if (keyWord == "QUIT") {
+		GameManager::stopGame();
+	}
+
+}
+void GameManager::checkKeywordItem(string keyWord, Item *keyItem, Location* l, Player* p) {
+	if (keyWord == "TAKE") {
+		p->takeItem(keyItem);
+		l->take_item(keyItem);
+	}
+	else if (keyWord == "DROP") {
+		p->dropItem(keyItem);
+		l->drop_item(keyItem);
+	}
+
+	else if (keyWord == "OPEN") {
+		keyItem->open();
+	}
+}
+

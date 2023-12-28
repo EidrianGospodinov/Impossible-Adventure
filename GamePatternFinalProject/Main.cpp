@@ -24,44 +24,47 @@ Executing commands
 
 work on player printstatus- the location print is printing its items as well, which is not needed for the status
 */
+/*
+void splitWord(string arr) {
+	
 
-//void splitWord(string arr) {
-//	
-//
-//	char sep = ' ';
-//	int i = 0;
-//
-//	
-//	string keyword;
-//	string desc;
-//	
-//
-//	bool iskeyword = true;
-//
-//	while (arr[i] != '\0')
-//	{
-//		if (arr[i] == sep && iskeyword != false) {
-//			iskeyword = false;
-//		}
-//
-//		else if (iskeyword != false) {
-//			keyword += arr[i];
-//
-//		}
-//		else
-//		{
-//			desc += arr[i];
-//		}
-//
-//		i++;
-//	}
-//	cout << keyword << endl;
-//	if (desc != "")
-//		cout << desc;
-//
-//
-//}
-void checkSoloKeyword(string keyWord,Location* l,Player* p) {
+	char sep = ' ';
+	int i = 0;
+
+	
+	string keyword;
+	string desc;
+	
+
+	bool iskeyword = true;
+
+	while (arr[i] != '\0')
+	{
+		if (arr[i] == sep && iskeyword != false) {
+			iskeyword = false;
+		}
+
+		else if (iskeyword != false) {
+			keyword += arr[i];
+
+		}
+		else
+		{
+			desc += arr[i];
+		}
+
+		i++;
+	}
+	cout << keyword << endl;
+	if (desc != "")
+		cout << desc;
+
+
+}
+*/
+
+/*
+void checkSoloKeyword(string keyWord, Location* l, Player* p) {
 	if (keyWord == "LOOK") {
 		l->print();
 	}
@@ -70,7 +73,9 @@ void checkSoloKeyword(string keyWord,Location* l,Player* p) {
 		GameManager::stopGame();
 	}
 }
-void checkKeywordItem(string keyWord,string itemName, Location* l, Player* p) {
+*/
+
+/*void checkKeywordItem(string keyWord, string itemName, Location* l, Player* p) {
 	
 	 if (keyWord == "TAKE") {
 		//p->takeItem();
@@ -83,30 +88,15 @@ void checkKeywordItem(string keyWord,string itemName, Location* l, Player* p) {
 
 	}
 	
-}
+}*/
+
 void readData() {
 
 }
 
 int main() {
 	//game manager
-	GameManager game;
-	game.startGame();
 	
-	
-
-
-	while (game.gameOn) 
-	{
-		string input;
-		getline(cin, input);
-		game.splitWord(input);
-		if (input == "quit") {
-			game.stopGame();
-		}
-
-
-	}
 
 
 	//test functionallity using the datafile
@@ -153,8 +143,25 @@ int main() {
 	cout << endl << endl;
 	Player::printStatus();
 
-	cout<<player->openItem(Strongbox);
+	//cout<<player->openItem(Strongbox);
+	cout << endl;
 	
+	//game manager
+	GameManager game(player);
+	game.startGame();
 
-	
+
+
+
+	while (game.gameOn)
+	{
+		string input;
+		getline(cin, input);
+		game.splitWord(input);
+		/*if (input == "quit") {
+			game.stopGame();
+		}*/
+
+
+	}
 }

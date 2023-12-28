@@ -4,12 +4,12 @@
 
 void Location::print()
 {
-	std::cout << "About "<<name<<": \n"<<description<<"\n"<<"And here is a list of the current items on this location";
+	std::cout << "About the "<<name<<": \n"<<description<<"\n"<<"And here is a list of the current items on this location: \n";
 
 	for (Item* i : contents) {
 		//print the name of each item on this location
-		i->getName();
-		std::cout << "\t";
+		std::cout << i->getName() << "\t";
+		
 	}
 }
 
@@ -25,7 +25,7 @@ bool Location::hasItem(Item* i)
 	return false;
 }
 
-Location::Location(int defaultLocation, string n, string descr, list<Item*> cont):number(defaultLocation), name(n),description(descr)
+Location::Location(int defaultLocation, string n, string descr, list<Item*> cont):number(defaultLocation), name(n),description(descr),contents(cont)
 {
 }
 
@@ -47,6 +47,11 @@ string Location::getName()
 	if (this != nullptr)
 	return name;
 	
+}
+
+list<Item*> Location::getContents()
+{
+	return contents;
 }
 
 void Location::drop_item(Item* i)
