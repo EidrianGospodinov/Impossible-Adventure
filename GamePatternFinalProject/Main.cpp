@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Location.h"
 #include"Container.h"
+#include "GameManager.h"
 using std::cout;
 using namespace std;
 
@@ -24,75 +25,85 @@ Executing commands
 work on player printstatus- the location print is printing its items as well, which is not needed for the status
 */
 
-void splitWord(string arr) {
-	
-
-	char sep = ' ';
-	int i = 0;
-
-	
-	string keyword;
-	string desc;
-	
-
-	bool iskeyword = true;
-
-	while (arr[i] != '\0')
-	{
-		if (arr[i] == sep && iskeyword != false) {
-			iskeyword = false;
-		}
-
-		else if (iskeyword != false) {
-			keyword += arr[i];
-
-		}
-		else
-		{
-			desc += arr[i];
-		}
-
-		i++;
-	}
-	cout << keyword << endl;
-	if (desc != "")
-		cout << desc;
-
-
-}
-void checkKeyword(string word,Location* l,Player* p) {
-	if (word == "LOOK") {
+//void splitWord(string arr) {
+//	
+//
+//	char sep = ' ';
+//	int i = 0;
+//
+//	
+//	string keyword;
+//	string desc;
+//	
+//
+//	bool iskeyword = true;
+//
+//	while (arr[i] != '\0')
+//	{
+//		if (arr[i] == sep && iskeyword != false) {
+//			iskeyword = false;
+//		}
+//
+//		else if (iskeyword != false) {
+//			keyword += arr[i];
+//
+//		}
+//		else
+//		{
+//			desc += arr[i];
+//		}
+//
+//		i++;
+//	}
+//	cout << keyword << endl;
+//	if (desc != "")
+//		cout << desc;
+//
+//
+//}
+void checkSoloKeyword(string keyWord,Location* l,Player* p) {
+	if (keyWord == "LOOK") {
 		l->print();
 	}
-	else if (word == "TAKE") {
+	
+	else if (keyWord == "QUIT") {
+		GameManager::stopGame();
+	}
+}
+void checkKeywordItem(string keyWord,string itemName, Location* l, Player* p) {
+	
+	 if (keyWord == "TAKE") {
 		//p->takeItem();
 	}
-	else if (word == "DROP") {
+	else if (keyWord == "DROP") {
+
+	}
+
+	else if (keyWord == "OPEN") {
 
 	}
 	
-	else if (word == "OPEN") {
-
-	}
-	else if (word == "QUIT") {
-
-	}
 }
 void readData() {
 
 }
 
 int main() {
+	//game manager
+	GameManager game;
+	game.startGame();
 	
-	bool game = true;
 	
 
 
-	while (game) 
+	while (game.gameOn) 
 	{
 		string input;
 		getline(cin, input);
-		splitWord(input);
+		game.splitWord(input);
+		if (input == "quit") {
+			game.stopGame();
+		}
 
 
 	}

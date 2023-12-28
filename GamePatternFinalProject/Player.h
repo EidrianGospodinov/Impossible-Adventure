@@ -28,6 +28,6 @@ public:
 	static bool dropItem(Item* i);// Function to remove an item from the player's inventory
 	static bool openItem(Item* i);// Function to handle opening an item
 	static void printStatus(); // Function to print the player's current status, including location
-
+	
 };
 
