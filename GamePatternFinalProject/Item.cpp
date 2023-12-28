@@ -1,5 +1,10 @@
 #include "Item.h"
 
+bool Item::open()
+{
+	return false;
+}
+
 string Item::getName()
 {
 	//returns item name

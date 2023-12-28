@@ -18,6 +18,13 @@ void Player::changeLocation(Location* loc)
     location = loc;
 }
 
+
+
+Location Player::getLocation()
+{
+    return *location;
+}
+
 bool Player::hasItem(Item* i)
 {
     //check if the item is in the player inventory
@@ -57,8 +64,11 @@ bool Player::dropItem(Item* i)
 
 bool Player::openItem(Item* i)
 {
-
-    return false;
+    //if (i->isContainer && i != nullptr)
+    {
+        return i->open();
+    }
+   // return false;
 }
 
 void Player::printStatus()

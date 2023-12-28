@@ -6,9 +6,10 @@ class Item
 	//stores items name and description
 	string name="";
 	string description;
-	bool canBeOpen = false;
 
 public:
+	virtual bool open();
+	bool isContainer = false;
 	//public getters to retrive the name and description of items
 	string getName();
 	string getDescription();

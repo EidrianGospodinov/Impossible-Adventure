@@ -1,11 +1,13 @@
 #include<iostream>
 #include<vector>
 
+
 #include "Item.h"
 #include "Player.h"
 #include "Location.h"
 #include"Container.h"
 using std::cout;
+using namespace std;
 
 //notes
 /*
@@ -22,31 +24,78 @@ Executing commands
 work on player printstatus- the location print is printing its items as well, which is not needed for the status
 */
 
-void splitWord(string input) {
-	/*for (auto word : input
-		| split(' ')) */
+void splitWord(string arr) {
+	
+
+	char sep = ' ';
+	int i = 0;
+
+	
+	string keyword;
+	string desc;
+	
+
+	bool iskeyword = true;
+
+	while (arr[i] != '\0')
 	{
+		if (arr[i] == sep && iskeyword != false) {
+			iskeyword = false;
+		}
+
+		else if (iskeyword != false) {
+			keyword += arr[i];
+
+		}
+		else
+		{
+			desc += arr[i];
+		}
+
+		i++;
+	}
+	cout << keyword << endl;
+	if (desc != "")
+		cout << desc;
+
+
+}
+void checkKeyword(string word,Location* l,Player* p) {
+	if (word == "LOOK") {
+		l->print();
+	}
+	else if (word == "TAKE") {
+		//p->takeItem();
+	}
+	else if (word == "DROP") {
 
 	}
+	
+	else if (word == "OPEN") {
+
+	}
+	else if (word == "QUIT") {
+
+	}
+}
+void readData() {
 
 }
 
 int main() {
 	
-	//bool game = true;
-	//Player *player= new Player;
-	//Item *item= new Item;
-	//
-	//string input;
-	//std::vector<string> words;
+	bool game = true;
+	
 
 
-	/*while (game) {
-
+	while (game) 
+	{
+		string input;
+		getline(cin, input);
 		splitWord(input);
 
 
-	}*/
+	}
 
 
 	//test functionallity using the datafile
@@ -62,7 +111,7 @@ int main() {
 	content.push_back(letter);
 
 	Container* Strongbox = new Container("Strongbox", "A sturdy box", screwDriver, content);
-
+	
 	//player
 	Player* player = new Player();
 	player->takeItem(screwDriver);
@@ -93,8 +142,8 @@ int main() {
 	cout << endl << endl;
 	Player::printStatus();
 
-
+	cout<<player->openItem(Strongbox);
 	
 
-
+	
 }
