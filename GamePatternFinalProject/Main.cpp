@@ -136,9 +136,9 @@ int main() {
 	////test Item functions
 	cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
 	
-	cout<<"Is open: "<<Strongbox->isOpened;
+	/*cout<<"Is open: "<<Strongbox->isOpened;
 	Strongbox->open();
-	cout << "Is open: " << Strongbox->isOpened << endl;
+	cout << "Is open: " << Strongbox->isOpened << endl;*/
 	player->printStatus();
 	cout << endl << endl;
 	Player::printStatus();
@@ -155,12 +155,15 @@ int main() {
 
 	while (game.gameOn)
 	{
+		cout<<std::endl;
+		player->printStatus();
+		cout << std::endl;
 		string input;
 		getline(cin, input);
 		game.splitWord(input);
-		/*if (input == "quit") {
-			game.stopGame();
-		}*/
+		cout << std::endl;
+		player->printStatus();
+		
 
 
 	}

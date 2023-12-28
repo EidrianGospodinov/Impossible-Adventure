@@ -19,8 +19,8 @@ void GameManager::splitWord(string input) {
 	int i = 0;
 
 
-	string keyword;
-	string keyItem;
+	string keyword="";
+	string keyItem="";
 
 
 	bool iskeyword = true;
@@ -43,7 +43,7 @@ void GameManager::splitWord(string input) {
 		i++;
 	}
 	
-	if (keyItem != " ")
+	if (keyItem == "")
 		checkSoloKeyword(keyword, location, player);
 	else {
 		for (auto i : location->getContents()) {
@@ -64,6 +64,8 @@ void GameManager::checkSoloKeyword(string keyWord, Location* l, Player* p) {
 	else if (keyWord == "QUIT") {
 		GameManager::stopGame();
 	}
+	else
+		cout << "Invalid Command! \n";
 
 }
 void GameManager::checkKeywordItem(string keyWord, Item *keyItem, Location* l, Player* p) {
@@ -78,6 +80,9 @@ void GameManager::checkKeywordItem(string keyWord, Item *keyItem, Location* l, P
 
 	else if (keyWord == "OPEN") {
 		keyItem->open();
+
 	}
+	else
+		cout << "Invalid Command! \n";
 }
 
