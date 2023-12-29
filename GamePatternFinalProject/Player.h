@@ -22,7 +22,11 @@ class Player//all the members of the class are static so there to indicate there
 public:
 	~Player();
 	static void changeLocation(Location* loc);
-	static Location *getLocation();//not neccesery
+	static Location *getLocation();
+	list<Item*>getInventory() {
+		return inventory;
+	}
+	
 	static bool hasItem(Item* i); // Function to check if an item is in the player's inventory
 	static bool takeItem(Item* i);// Function to add an item to the player's inventory
 	static bool dropItem(Item* i);// Function to remove an item from the player's inventory

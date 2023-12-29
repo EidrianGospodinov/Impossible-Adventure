@@ -102,7 +102,7 @@ int main() {
 	//test functionallity using the datafile
 
 	//the key for the strongbox
-	Item* screwDriver = new Item("Screwdriver", "screw");
+	Item* screwDriver = new Item("SCREWDRIVER", "screw");
 
 	//the items inside the strongbox
 	Item* redKey = new Item("redKey", "key that is red");
@@ -111,11 +111,11 @@ int main() {
 	content.push_back(redKey);
 	content.push_back(letter);
 
-	Container* Strongbox = new Container("Strongbox", "A sturdy box", screwDriver, content);
+	Container* Strongbox = new Container("STRONGBOX", "A sturdy box", screwDriver, content);
 	
 	//player
 	Player* player = new Player();
-	player->takeItem(screwDriver);
+	/*player->takeItem(screwDriver);*/
 	//locations
 	list<Item*>loc1Contents;
 	loc1Contents.push_back(Strongbox);
@@ -156,7 +156,7 @@ int main() {
 	while (game.gameOn)
 	{
 		cout<<std::endl;
-		player->printStatus();
+		cout << std::endl;
 		cout << std::endl;
 		string input;
 		getline(cin, input);

@@ -42,7 +42,7 @@ bool Player::takeItem(Item* i)
 {
     //add an item to player inventory if the item is not null
     if (i != nullptr) {
-        //location->take_item(i); //
+        location->take_item(i); 
         inventory.push_back(i);
     }
 

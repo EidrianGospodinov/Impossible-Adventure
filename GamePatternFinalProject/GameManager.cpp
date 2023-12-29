@@ -14,6 +14,7 @@ void GameManager::startGame()
 {
 	gameOn = true;
 }
+
 void GameManager::splitWord(string input) {
 	char sep = ' ';
 	int i = 0;
@@ -46,16 +47,14 @@ void GameManager::splitWord(string input) {
 	if (keyItem == "")
 		checkSoloKeyword(keyword, location, player);
 	else {
-		for (auto i : location->getContents()) {
-			if (i->getName() == keyItem)
-			{
+		
 				
-				checkKeywordItem(keyword, i, location, player);
-			}
+			checkKeywordItem(keyword, keyItem, location, player);
+			
 		}
 	}
 
-}
+
 void GameManager::checkSoloKeyword(string keyWord, Location* l, Player* p) {
 	if (keyWord == "LOOK") {
 		l->print();
@@ -65,24 +64,42 @@ void GameManager::checkSoloKeyword(string keyWord, Location* l, Player* p) {
 		GameManager::stopGame();
 	}
 	else
-		cout << "Invalid Command! \n";
+		cout << keyWord<<"is an invalid Command! \n";
 
 }
-void GameManager::checkKeywordItem(string keyWord, Item *keyItem, Location* l, Player* p) {
+void GameManager::checkKeywordItem(string keyWord, string keyItem, Location* l, Player* p) {
 	if (keyWord == "TAKE") {
-		p->takeItem(keyItem);
-		l->take_item(keyItem);
+		for (auto i : location->getContents()) {
+			if (i->getName() == keyItem)
+			{
+				cout << "item taken: " << keyItem << endl;
+				player->takeItem(i);
+				/*location->take_item(i);*/
+				
+				
+			}
+		}
 	}
 	else if (keyWord == "DROP") {
-		p->dropItem(keyItem);
-		l->drop_item(keyItem);
+		for (auto i : player->getInventory()) {
+			if (i->getName() == keyItem) {
+				cout << "item dropped: " << keyItem << endl;
+				player->dropItem(i);
+				
+			}
+		}
 	}
 
 	else if (keyWord == "OPEN") {
-		keyItem->open();
+		for (auto i : player->getInventory()) {
+			if (i->getName() == keyItem) {
+				if(i->open())
+				cout << "item openned: " << keyItem << endl;
+			}
+		}
 
 	}
 	else
-		cout << "Invalid Command! \n";
+		cout <<keyItem <<" is an invalid Command! \n";
 }
 

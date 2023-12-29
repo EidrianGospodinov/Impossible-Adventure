@@ -16,7 +16,7 @@ public:
 	static void stopGame();
 	void splitWord(string input);
 	void checkSoloKeyword(string keyWord, Location* l, Player* p);
-	void checkKeywordItem(string keyWord, Item *keyItem, Location* l, Player* p);
+	void checkKeywordItem(string keyWord, string keyItem, Location* l, Player* p);
 	
 	
 	
