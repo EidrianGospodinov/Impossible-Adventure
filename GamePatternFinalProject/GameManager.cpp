@@ -14,6 +14,9 @@ void GameManager::startGame()
 {
 	gameOn = true;
 }
+void GameManager::updateLocation() {
+	location=player->getLocation();
+}
 
 void GameManager::splitWord(string input) {
 	char sep = ' ';
@@ -43,14 +46,11 @@ void GameManager::splitWord(string input) {
 
 		i++;
 	}
-	
+	updateLocation();//updates location in case the player has moved
 	if (keyItem == "")
 		checkSoloKeyword(keyword);
 	else {
-		
-				
-			checkKeywordItem(keyword, keyItem);
-			
+			checkKeywordItem(keyword, keyItem);		
 		}
 	}
 

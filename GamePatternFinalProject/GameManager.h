@@ -17,6 +17,7 @@ public:
 	void splitWord(string input);
 	void checkSoloKeyword(string keyWord);
 	void checkKeywordItem(string keyWord, string keyItem);
+	void updateLocation();
 	
 	
 	

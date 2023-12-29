@@ -96,8 +96,8 @@ int main() {
 	//read data
 	string fileName;
 	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"";
-	cin >> fileName;
-	InputFile file(fileName);
+	//cin >> fileName;
+	InputFile file("initial.txt");
 	file.readFile();
 	
 
@@ -139,14 +139,14 @@ int main() {
 	player->changeLocation(loc1);
 
 	////test Item functions
-	cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
+	//cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
 	
 	/*cout<<"Is open: "<<Strongbox->isOpened;
 	Strongbox->open();
 	cout << "Is open: " << Strongbox->isOpened << endl;*/
-	player->printStatus();
+	//player->printStatus();
 	cout << endl << endl;
-	Player::printStatus();
+	//Player::printStatus();
 
 	//cout<<player->openItem(Strongbox);
 	cout << endl;
@@ -158,7 +158,7 @@ int main() {
 
 
 
-	while (game.gameOn)
+	while (!game.gameOn)
 	{
 		cout<<std::endl;
 		cout << std::endl;
