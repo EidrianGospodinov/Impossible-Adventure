@@ -45,29 +45,29 @@ void GameManager::splitWord(string input) {
 	}
 	
 	if (keyItem == "")
-		checkSoloKeyword(keyword, location, player);
+		checkSoloKeyword(keyword);
 	else {
 		
 				
-			checkKeywordItem(keyword, keyItem, location, player);
+			checkKeywordItem(keyword, keyItem);
 			
 		}
 	}
 
 
-void GameManager::checkSoloKeyword(string keyWord, Location* l, Player* p) {
+void GameManager::checkSoloKeyword(string keyWord) {
 	if (keyWord == "LOOK") {
-		l->print();
+		location->print();
 	}
 
 	else if (keyWord == "QUIT") {
 		GameManager::stopGame();
 	}
 	else
-		cout << keyWord<<"is an invalid Command! \n";
+		cout << keyWord<<" is an invalid Command! \n";
 
 }
-void GameManager::checkKeywordItem(string keyWord, string keyItem, Location* l, Player* p) {
+void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 	if (keyWord == "TAKE") {
 		for (auto i : location->getContents()) {
 			if (i->getName() == keyItem)
@@ -93,8 +93,10 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem, Location* l, 
 	else if (keyWord == "OPEN") {
 		for (auto i : player->getInventory()) {
 			if (i->getName() == keyItem) {
-				if(i->open())
-				cout << "item openned: " << keyItem << endl;
+				if (i->open()) {
+					player->dropItem(i);
+					cout << "item openned: " << keyItem << endl;
+				}
 			}
 		}
 
