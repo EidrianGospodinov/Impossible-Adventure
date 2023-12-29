@@ -64,6 +64,7 @@ void Location::drop_item(Item* i)
 
 Item* Location::getKey(string& direction)
 {
+
 	
 	return nullptr;
 }

@@ -1,12 +1,12 @@
 #include<iostream>
 #include<vector>
 
-
 #include "Item.h"
 #include "Player.h"
 #include "Location.h"
 #include"Container.h"
 #include "GameManager.h"
+#include "InputFile.h"
 using std::cout;
 using namespace std;
 
@@ -90,14 +90,19 @@ void checkSoloKeyword(string keyWord, Location* l, Player* p) {
 	
 }*/
 
-void readData() {
 
-}
 
 int main() {
-	//game manager
+	//read data
+	string fileName;
+	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"";
+	cin >> fileName;
+	InputFile file(fileName);
+	file.readFile();
 	
 
+	
+	
 
 	//test functionallity using the datafile
 

@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="InputFile.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="Container.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="InputFile.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Player.h" />

@@ -63,6 +63,24 @@ void GameManager::checkSoloKeyword(string keyWord) {
 	else if (keyWord == "QUIT") {
 		GameManager::stopGame();
 	}
+	else if (keyWord == "NORTH") {
+
+	}
+	else if (keyWord == "SOUTH") {
+
+	}
+	else if (keyWord == "EAST") {
+
+	}
+	else if (keyWord == "WEST") {
+
+	}
+	else if (keyWord == "IN") {
+
+	}
+	else if (keyWord == "OUT") {
+
+	}
 	else
 		cout << keyWord<<" is an invalid Command! \n";
 
@@ -93,7 +111,7 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 	else if (keyWord == "OPEN") {
 		for (auto i : player->getInventory()) {
 			if (i->getName() == keyItem) {
-				if (i->open()) {
+				if (player->openItem(i)/*, i->open()*/) {
 					player->dropItem(i);
 					cout << "item openned: " << keyItem << endl;
 				}
