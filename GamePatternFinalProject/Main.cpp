@@ -117,7 +117,7 @@ int main() {
 	content.push_back(letter);
 
 	Item* Strongbox = new Container("STRONGBOX", "A sturdy box", screwDriver, content);
-	cout<<Strongbox->open();
+	//cout<<Strongbox->open();
 	
 	//player
 	Player* player = new Player();
