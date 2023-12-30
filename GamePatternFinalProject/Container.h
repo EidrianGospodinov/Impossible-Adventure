@@ -13,7 +13,7 @@ class Container: public Item
 public:
 	bool isContainer=true;
 	bool isOpened=false;//tracks if the container is opened
-	bool open();//function to open the container, returns true if successfull 
+	bool open() override;//function to open the container, returns true if successfull 
 
 	//constructor
 	Container(string name,string descr,Item *item, list<Item*>cont);

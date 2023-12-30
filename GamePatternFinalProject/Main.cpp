@@ -98,7 +98,7 @@ int main() {
 	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"";
 	//cin >> fileName;
 	InputFile file("initial.txt");
-	file.readFile();
+	//file.readFile();
 	
 
 	
@@ -116,7 +116,8 @@ int main() {
 	content.push_back(redKey);
 	content.push_back(letter);
 
-	Container* Strongbox = new Container("STRONGBOX", "A sturdy box", screwDriver, content);
+	Item* Strongbox = new Container("STRONGBOX", "A sturdy box", screwDriver, content);
+	cout<<Strongbox->open();
 	
 	//player
 	Player* player = new Player();
@@ -158,7 +159,7 @@ int main() {
 
 
 
-	while (!game.gameOn)
+	while (game.gameOn)
 	{
 		cout<<std::endl;
 		cout << std::endl;
