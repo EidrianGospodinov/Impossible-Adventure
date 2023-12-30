@@ -34,7 +34,7 @@ void InputFile::readFile()
 			processInputLocation(line.substr(9));
 		}
 		if(newBlock == false) {
-			
+			string temp;
 			if (keyword == "Item") {
 				if (line.find("Description:") != std::string::npos) {
 					
@@ -42,11 +42,26 @@ void InputFile::readFile()
 				}
 				if (line.find("Contents:") != std::string::npos) {
 
-					description = line.substr(9);
+					temp = line.substr(9);
+					string tempItem;
+					int i = 0;
+					while (temp[i] != '\0') {
+						if (temp[i] == ',') {
+							contents.push_back(findItem(tempItem));
+							tempItem = " ";
+							i++;
+						}
+						tempItem += temp[i];
+
+						i++;
+					}
+					
 				}
 				if (line.find("Keys:") != std::string::npos) {
 
-					description = line.substr(5);
+					temp = line.substr(5);
+					keyItem=findItem(temp);
+					
 				}
 				
 				
@@ -79,7 +94,7 @@ void InputFile::processInputItem(string s)
 		 item = new Item(name, description);
 	}
 	else {
-		Container* item = new Container(name, description, keyItem, contents);
+		 item = new Container(name, description, keyItem, contents);
 	}
 
 	std::cout << std::endl;
@@ -89,6 +104,32 @@ void InputFile::processInputItem(string s)
 	//if (item != nullptr)
 	allItems.push_back(item);
 }
+
+Item* InputFile::findItem(string temp)
+{
+	for (auto i : allItems)
+	{
+		if (i->getName() == temp) {
+			return i;
+		}
+	}
+	return nullptr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void InputFile::processInputLocation(string s)
 {

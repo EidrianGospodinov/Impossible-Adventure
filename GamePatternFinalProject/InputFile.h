@@ -28,6 +28,7 @@ class InputFile
 	void processInputItem(string s);
 	void processInputLocation(string s);
 	void clearVariables();
+	Item* findItem(string temp);
 public:
 	InputFile(string fName);
 	void readFile();
