@@ -5,6 +5,11 @@ bool Item::open()
 	return false;
 }
 
+bool Item::isContainer()
+{
+	return false;
+}
+
 string Item::getName()
 {
 	//returns item name

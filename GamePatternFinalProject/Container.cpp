@@ -43,3 +43,8 @@ void Container::addToInventory()
     }
         
 }
+
+bool Container::isContainer()
+{
+    return true;
+}

@@ -98,7 +98,7 @@ int main() {
 	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"";
 	//cin >> fileName;
 	InputFile file("initial.txt");
-	//file.readFile();
+	file.readFile();
 	
 
 	
@@ -107,68 +107,69 @@ int main() {
 	//test functionallity using the datafile
 
 	//the key for the strongbox
-	Item* screwDriver = new Item("SCREWDRIVER", "screw");
+	//Item* screwDriver = new Item("SCREWDRIVER", "screw");
 
 	//the items inside the strongbox
-	Item* redKey = new Item("redKey", "key that is red");
+	/*Item* redKey = new Item("redKey", "key that is red");
 	Item* letter = new Item("letter", "let");
 	list<Item*>content;
 	content.push_back(redKey);
 	content.push_back(letter);
 
 	Item* Strongbox = new Container("STRONGBOX", "A sturdy box", screwDriver, content);
-	//cout<<Strongbox->open();
 	
+	*/
 	//player
 	Player* player = new Player();
-	/*player->takeItem(screwDriver);*/
+	
 	//locations
-	list<Item*>loc1Contents;
+	/*list<Item*>loc1Contents;
 	loc1Contents.push_back(Strongbox);
 	loc1Contents.push_back(screwDriver);
-	Location* loc1 = new Location(1, "Outside building", "You are standing in front of a small building.", loc1Contents);
+	Location* loc1 = new Location(1, "Outside building", "You are standing in front of a small building.", loc1Contents);*/
 
 
 
 
 	//loc2
-	Item* rubberDuck = new Item("rubber duck", "Duck made of rubber");
+	/*Item* rubberDuck = new Item("rubber duck", "Duck made of rubber");
 	list<Item*> loc2Contents{ rubberDuck };
 	Location* loc2 = new Location(2, "inside Building", "You are inside a building, a well house for a largespring", loc2Contents);
+*/
 
+	//player->changeLocation(loc1);
 
-	player->changeLocation(loc1);
-
-	////test Item functions
-	//cout << Strongbox->getName() << ": " << Strongbox->getDescription()<<endl;
 	
-	/*cout<<"Is open: "<<Strongbox->isOpened;
-	Strongbox->open();
-	cout << "Is open: " << Strongbox->isOpened << endl;*/
-	//player->printStatus();
-	cout << endl << endl;
-	//Player::printStatus();
 
-	//cout<<player->openItem(Strongbox);
-	cout << endl;
 	
 	//game manager
 	GameManager game(player);
 	game.startGame();
 
+	
+	
 
 
-
-	while (game.gameOn)
+	//while (game.gameOn)
 	{
 		cout<<std::endl;
 		cout << std::endl;
 		cout << std::endl;
 		string input;
-		getline(cin, input);
-		game.splitWord(input);
+	/*	getline(cin, input);
+		game.splitWord(input);*/
 		cout << std::endl;
-		player->printStatus();
+		
+
+		
+		
+		for (auto i : file.qwer()) {
+			cout << i->getName() << endl;
+			cout << "Is the item a container: " << i->isContainer() << endl;
+			
+		
+				
+		}
 		
 
 

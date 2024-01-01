@@ -11,7 +11,7 @@ class Container: public Item
 	
 	void addToInventory();//private function that is used inside the open function to add to the inventory the content of the container if successfull
 public:
-	bool isContainer=true;
+	bool isContainer();
 	bool isOpened=false;//tracks if the container is opened
 	bool open() override;//function to open the container, returns true if successfull 
 

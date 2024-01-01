@@ -11,7 +11,7 @@ void InputFile::readFile()
 {
 	string line;
 	string keyword;
-	bool newBlock = false;
+	
 	// Use a while loop together with the getline() function to read the file line by line
 	while (std::getline(file, line)) {
 		// Output the text from the file
@@ -27,18 +27,18 @@ void InputFile::readFile()
 
 		if (line.find("Item:") != std::string::npos) {
 			keyword = "Item";
-			name=line.substr(5);
+			name=line.substr(6);
 		}
 		else if (line.find("Location:") != std::string::npos) {
 			keyword = "Location";
-			processInputLocation(line.substr(9));
+			processInputLocation(line.substr(10));
 		}
 		if(newBlock == false) {
 			string temp;
 			if (keyword == "Item") {
 				if (line.find("Description:") != std::string::npos) {
 					
-					description=line.substr(12);
+					description=line.substr(13);
 				}
 				if (line.find("Contents:") != std::string::npos) {
 
@@ -59,7 +59,7 @@ void InputFile::readFile()
 				}
 				if (line.find("Keys:") != std::string::npos) {
 
-					temp = line.substr(5);
+					temp = line.substr(6);
 					keyItem=findItem(temp);
 					
 				}
@@ -73,7 +73,9 @@ void InputFile::readFile()
 		}
 		else
 		{
-			processInputItem(" ");
+			if(name!=" ")
+			processInputItem();
+
 			clearVariables();
 		}
 
@@ -86,10 +88,10 @@ void InputFile::readFile()
 	file.close();
 }
 
-void InputFile::processInputItem(string s)
+void InputFile::processInputItem()
 {
 	Item* item;
-	if (!contents.empty()) {
+	if (contents.empty()) {
 
 		 item = new Item(name, description);
 	}
@@ -116,19 +118,10 @@ Item* InputFile::findItem(string temp)
 	return nullptr;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+list<Item*> InputFile::qwer()
+{
+	return allItems;
+}
 
 
 void InputFile::processInputLocation(string s)
@@ -138,8 +131,10 @@ void InputFile::processInputLocation(string s)
 
 void InputFile::clearVariables()
 {
+	newBlock = false;
 	name = " ";
 	description = " ";
 	contents.clear();
 	keyItem = nullptr;
+	
 }

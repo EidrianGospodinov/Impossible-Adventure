@@ -1,3 +1,12 @@
+Item: Red key
+Description: a key thats red
+
+Item: Letter
+Description: paper with the shuffeld alpabet on it
+
+Item: Screwdriver
+Description: A sturdy box. It has seen better times.
+
 Item: Strongbox
 Description: A sturdy box. It has seen better times.
 Contents: Red Key, Letter

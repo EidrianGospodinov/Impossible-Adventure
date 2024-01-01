@@ -9,7 +9,7 @@ class Item
 
 public:
 	virtual bool open();
-	bool isContainer = false;
+	virtual bool isContainer();
 	//public getters to retrive the name and description of items
 	string getName();
 	string getDescription();
