@@ -1,10 +1,7 @@
 #include "GameManager.h"
 bool GameManager::gameOn;
 
-GameManager::GameManager(Player* p) :player(p)
-{
-	location = player->getLocation();
-}
+
 void GameManager::stopGame()
 {
 	gameOn = false;
@@ -15,7 +12,7 @@ void GameManager::startGame()
 	gameOn = true;
 }
 void GameManager::updateLocation() {
-	location=player->getLocation();
+	location= Player::getLocation();
 }
 
 void GameManager::splitWord(string input) {
@@ -91,7 +88,7 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 			if (i->getName() == keyItem)
 			{
 				cout << "item taken: " << keyItem << endl;
-				player->takeItem(i);
+				Player::takeItem(i);
 				/*location->take_item(i);*/
 				
 				
@@ -99,20 +96,20 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 		}
 	}
 	else if (keyWord == "DROP") {
-		for (auto i : player->getInventory()) {
+		for (auto i : Player::getInventory()) {
 			if (i->getName() == keyItem) {
 				cout << "item dropped: " << keyItem << endl;
-				player->dropItem(i);
+				Player::dropItem(i);
 				
 			}
 		}
 	}
 
 	else if (keyWord == "OPEN") {
-		for (auto i : player->getInventory()) {
+		for (auto i : Player::getInventory()) {
 			if (i->getName() == keyItem) {
-				if (player->openItem(i)/*, i->open()*/) {
-					player->dropItem(i);
+				if (Player::openItem(i)/*, i->open()*/) {
+					Player::dropItem(i);
 					cout << "item openned: " << keyItem << endl;
 				}
 			}

@@ -16,7 +16,7 @@ void InputFile::readFile()
 		// Output the text from the file
 		if (line.empty()) {
 			newBlock = true;
-			keyword = " ";
+			//keyword = " ";
 			
 			std:: cout << "1111111111111111";
 		}
@@ -62,8 +62,14 @@ void InputFile::readFile()
 		}
 		else
 		{
-			if(name!=" ")
-			processInputItem();
+			if (name != " ") {
+
+				if (keyword == "Item")
+					processInputItem();
+
+				else if (keyword == "Location")
+					processInputLocation();
+			}
 
 			clearVariables();
 		}
@@ -113,7 +119,7 @@ void InputFile::setInput()
 
 		description = line.substr(13);
 	}
-	if (line.find("Contents:") != std::string::npos) {
+	else if (line.find("Contents:") != std::string::npos) {
 
 		temp = line.substr(9);
 		string tempItem;

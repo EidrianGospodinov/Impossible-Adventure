@@ -23,9 +23,7 @@ public:
 	~Player();
 	static void changeLocation(Location* loc);
 	static Location *getLocation();
-	list<Item*>getInventory() {
-		return inventory;
-	}
+	static list<Item*>getInventory();
 	
 	static bool hasItem(Item* i); // Function to check if an item is in the player's inventory
 	static bool takeItem(Item* i);// Function to add an item to the player's inventory

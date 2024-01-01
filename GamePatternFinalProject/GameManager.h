@@ -7,10 +7,10 @@ using std::cout;
 using std::endl;
 class GameManager
 {
-	Location *location;
-	Player *player;
+	Location *location= Player::getLocation();
+	
 public:
-	GameManager(Player* p);
+	
 	static bool gameOn;
 	static void startGame();
 	static void stopGame();

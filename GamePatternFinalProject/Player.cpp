@@ -25,6 +25,13 @@ Location *Player::getLocation()
     return location;
 }
 
+list<Item*> Player::getInventory()
+{
+    
+        return inventory;
+    
+}
+
 bool Player::hasItem(Item* i)
 {
     //check if the item is in the player inventory

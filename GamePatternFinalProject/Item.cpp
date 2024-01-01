@@ -13,7 +13,9 @@ bool Item::isContainer()
 string Item::getName()
 {
 	//returns item name
+	if(name!= " ")
 	return name;
+	return " ";
 }
 
 string Item::getDescription()
