@@ -11,7 +11,7 @@
 using std::string;
 using std::ifstream;
 using std::list;
-//using std::istringstream;
+
 
 class InputFile
 {
@@ -24,11 +24,16 @@ class InputFile
 	list<Item*> contents;
 	list<Item*>allItems;
 	bool newBlock = false;
+	string line;
+	string keyword;
+	string temp;
+	int numberOfLocation;
 
 
 	void processInputItem();
-	void processInputLocation(string s);
+	void processInputLocation();
 	void clearVariables();
+	void setInput();
 	Item* findItem(string temp);
 public:
 	list<Item*>qwer();

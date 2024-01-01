@@ -26,3 +26,5 @@ Description: You are inside a building, a well house for a large spring.
 Contents: Rubber Duck
 SOUTH 1
 OUT 1
+
+.

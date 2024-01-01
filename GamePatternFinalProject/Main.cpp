@@ -93,6 +93,7 @@ void checkSoloKeyword(string keyWord, Location* l, Player* p) {
 
 
 int main() {
+	Player* player = new Player();
 	//read data
 	string fileName;
 	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"";
@@ -120,7 +121,7 @@ int main() {
 	
 	*/
 	//player
-	Player* player = new Player();
+
 	
 	//locations
 	/*list<Item*>loc1Contents;
@@ -156,20 +157,20 @@ int main() {
 		cout << std::endl;
 		cout << std::endl;
 		string input;
-	/*	getline(cin, input);
+		/*getline(cin, input);
 		game.splitWord(input);*/
 		cout << std::endl;
 		
 
-		
-		
 		for (auto i : file.qwer()) {
 			cout << i->getName() << endl;
 			cout << "Is the item a container: " << i->isContainer() << endl;
-			
-		
-				
+
+
+
 		}
+		
+		
 		
 
 

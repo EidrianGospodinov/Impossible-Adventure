@@ -9,8 +9,7 @@ InputFile::InputFile(string fName): fileName(fName),file(fName)
 
 void InputFile::readFile()
 {
-	string line;
-	string keyword;
+	
 	
 	// Use a while loop together with the getline() function to read the file line by line
 	while (std::getline(file, line)) {
@@ -31,32 +30,15 @@ void InputFile::readFile()
 		}
 		else if (line.find("Location:") != std::string::npos) {
 			keyword = "Location";
-			processInputLocation(line.substr(10));
+			numberOfLocation=stoi(line.substr(10));
 		}
+
+
 		if(newBlock == false) {
-			string temp;
+			
 			if (keyword == "Item") {
-				if (line.find("Description:") != std::string::npos) {
-					
-					description=line.substr(13);
-				}
-				if (line.find("Contents:") != std::string::npos) {
-
-					temp = line.substr(9);
-					string tempItem;
-					int i = 0;
-					while (temp[i] != '\0') {
-						if (temp[i] == ',') {
-							contents.push_back(findItem(tempItem));
-							tempItem = " ";
-							i++;
-						}
-						tempItem += temp[i];
-
-						i++;
-					}
-					
-				}
+				setInput();//the input is for description and contents 
+				
 				if (line.find("Keys:") != std::string::npos) {
 
 					temp = line.substr(6);
@@ -67,6 +49,13 @@ void InputFile::readFile()
 				
 			}
 			else if (keyword == "Location") {
+				if (line.find("Name:") != std::string::npos) {
+
+					name = line.substr(6);
+				
+
+				}
+				setInput();//the input is for description and contents 
 
 			}
 			
@@ -118,15 +107,42 @@ Item* InputFile::findItem(string temp)
 	return nullptr;
 }
 
+void InputFile::setInput()
+{
+	if (line.find("Description:") != std::string::npos) {
+
+		description = line.substr(13);
+	}
+	if (line.find("Contents:") != std::string::npos) {
+
+		temp = line.substr(9);
+		string tempItem;
+		int i = 0;
+		while (temp[i] != '\0') {
+			if (temp[i] == ',') {
+				contents.push_back(findItem(tempItem));
+				tempItem = " ";
+				i++;
+			}
+			tempItem += temp[i];
+
+			i++;
+		}
+
+	}
+}
+
 list<Item*> InputFile::qwer()
 {
 	return allItems;
 }
 
 
-void InputFile::processInputLocation(string s)
+void InputFile::processInputLocation()
 {
-	//std::cout<<s;
+	Location* location = new Location(numberOfLocation, name, description, contents);
+	if (numberOfLocation == 1)
+		Player::changeLocation(location);
 }
 
 void InputFile::clearVariables()
