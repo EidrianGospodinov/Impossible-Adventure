@@ -31,6 +31,8 @@ class InputFile
 	string temp;
 	int numberOfLocation;
 	map<string, Item*>keyItemsMap;
+	map<string, int>connectionsMap;
+
 	list<string>listOfDirections{ "NORTH","SOUTH","EAST","WEST","IN","OUT" };
 		
 	bool searchDirection(string direction);

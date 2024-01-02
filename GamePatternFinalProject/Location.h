@@ -22,14 +22,14 @@ class Location
 	list<Item*> contents;//all items inside the location
 
 	map<string, Item*> key_items;//not sure about this 2
-	map<int, Location*> connections;
+	map<string, int> connections;
 
 public:
 	//contructor
 	list<Item*>getContents();
 	string getName();
 	Location(int defaultLocation, string n, string descr, 
-		list<Item*>cont, map<string, Item*>keyItems);//will add the last 2 later
+		list<Item*>cont, map<string, Item*>keyItems, map<string, int>connect);//will add the last 2 later
 	~Location();
 	void print();//prints the information about the location
 	bool hasItem(Item* i);//check if an item is present in the location

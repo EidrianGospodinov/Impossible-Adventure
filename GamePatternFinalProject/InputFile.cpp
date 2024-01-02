@@ -67,12 +67,15 @@ void InputFile::readFile()
 				direction = line.substr(0, charNum);
 				if (searchDirection(direction))
 				{
+					
 					if (line.find_first_of(",") != -1) {
-						keyItemsMap.insert({ direction, findItem(line.substr(charNum += 4)) });
+						keyItemsMap.insert({ direction, findItem(line.substr(charNum + 4)) });
 
 					}
 					else
 						keyItemsMap.insert({ direction,nullptr });
+
+					connectionsMap.insert({ direction,stoi(line.substr(charNum + 1,1)) });
 				}
 				}
 
@@ -177,7 +180,8 @@ void InputFile::processInputItem()
 
 void InputFile::processInputLocation()
 {
-	Location* location = new Location(numberOfLocation, name, description, contents,keyItemsMap);
+	Location* location = new Location(numberOfLocation, name, description, 
+		contents,keyItemsMap,connectionsMap);
 	if (numberOfLocation == 1)
 		Player::changeLocation(location);
 	allLocations.push_back(location);
