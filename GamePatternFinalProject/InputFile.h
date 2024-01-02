@@ -30,8 +30,10 @@ class InputFile
 	string keyword;
 	string temp;
 	int numberOfLocation;
-
-
+	map<string, Item*>keyItemsMap;
+	list<string>listOfDirections{ "NORTH","SOUTH","EAST","WEST","IN","OUT" };
+		
+	bool searchDirection(string direction);
 	void processInputItem();
 	void processInputLocation();
 	void clearVariables();

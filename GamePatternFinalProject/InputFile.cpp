@@ -23,11 +23,9 @@ void InputFile::readFile()
 			newBlock = true;
 			//keyword = " ";
 			
-			std:: cout << "1111111111111111";
+			
 		}
-		/*std::cout << line<<std::endl;*/
-		/*std::istringstream iss(line);
-		iss >> keyword;*/
+		
 
 		if (line.find("Item:") != std::string::npos) {
 			keyword = "Item";
@@ -59,8 +57,24 @@ void InputFile::readFile()
 					name = line.substr(6);
 				
 
-				}
+				}else
+				{
 				setInput();//the input is for description and contents 
+				string direction;
+				int charNum = 0;
+				
+				charNum = line.find_first_of(" ");
+				direction = line.substr(0, charNum);
+				if (searchDirection(direction))
+				{
+					if (line.find_first_of(",") != -1) {
+						keyItemsMap.insert({ direction, findItem(line.substr(charNum += 4)) });
+
+					}
+					else
+						keyItemsMap.insert({ direction,nullptr });
+				}
+				}
 
 			}
 			
@@ -88,24 +102,6 @@ void InputFile::readFile()
 	file.close();
 }
 
-void InputFile::processInputItem()
-{
-	Item* item;
-	if (contents.empty()) {
-
-		 item = new Item(name, description);
-	}
-	else {
-		 item = new Container(name, description, keyItem, contents);
-	}
-
-	std::cout << std::endl;
-	/*std::cout<<item->getName();
-	std::cout<<item->getDescription();*/
-	std::cout << std:: endl;
-	//if (item != nullptr)
-	allItems.push_back(item);
-}
 
 Item* InputFile::findItem(string temp)
 {
@@ -151,10 +147,37 @@ list<Item*> InputFile::qwer()
 	return allItems;
 }
 
+bool InputFile::searchDirection(string direction)
+{
+	for(auto i: listOfDirections)
+		if (i == direction) {
+			return true;
+		}
+	return false;
+}
+
+void InputFile::processInputItem()
+{
+	Item* item;
+	if (contents.empty()) {
+
+		 item = new Item(name, description);
+	}
+	else {
+		 item = new Container(name, description, keyItem, contents);
+	}
+
+	std::cout << std::endl;
+	/*std::cout<<item->getName();
+	std::cout<<item->getDescription();*/
+	std::cout << std:: endl;
+	//if (item != nullptr)
+	allItems.push_back(item);
+}
 
 void InputFile::processInputLocation()
 {
-	Location* location = new Location(numberOfLocation, name, description, contents);
+	Location* location = new Location(numberOfLocation, name, description, contents,keyItemsMap);
 	if (numberOfLocation == 1)
 		Player::changeLocation(location);
 	allLocations.push_back(location);

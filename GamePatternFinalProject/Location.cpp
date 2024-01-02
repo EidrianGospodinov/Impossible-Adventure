@@ -26,7 +26,9 @@ bool Location::hasItem(Item* i)
 	return false;
 }
 
-Location::Location(int defaultLocation, string n, string descr, list<Item*> cont):number(defaultLocation), name(n),description(descr),contents(cont)
+Location::Location(int defaultLocation, string n, string descr, list<Item*> cont,
+	map<string, Item*>keyItems) :number(defaultLocation), name(n),
+		description(descr),contents(cont),key_items(keyItems)
 {
 }
 
