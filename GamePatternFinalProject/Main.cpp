@@ -161,24 +161,13 @@ int main() {
 		game.splitWord(input);
 		cout << std::endl;
 		
-
-		/*for (auto i : file.qwer()) {
-			cout << i->getName() << endl;
-			cout << "Is the item a container: " << i->isContainer() << endl;
-
-
-
-		}
-		*/
+		Player::printStatus();
+		
 		
 		
 		
 
 
 	}
-	/*for (auto i : file.locqwe()) {
-		cout << i->getName() << endl;
-		i->print();
-		cout << endl << endl << endl;
-	}*/
+	
 }

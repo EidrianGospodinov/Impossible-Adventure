@@ -97,10 +97,17 @@ void GameManager::checkSoloKeyword(string keyWord) {
 		cout << keyWord<<" is an invalid Command! \n";
 	if (locationTowards != nullptr) {
 		if (keyItem != nullptr) {
-		if(Player::hasItem(keyItem))
-		Player::changeLocation(locationTowards);
-		}else
+			if (Player::hasItem(keyItem)) {
+				Player::changeLocation(locationTowards);
+				Player::steps++;
+
+		}
+		}
+		else {
 			Player::changeLocation(locationTowards);
+			Player::steps++;
+
+		}
 	}
 }
 void GameManager::checkKeywordItem(string keyWord, string keyItem) {

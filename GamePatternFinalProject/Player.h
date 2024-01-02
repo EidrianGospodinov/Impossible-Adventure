@@ -17,9 +17,9 @@ class Player//all the members of the class are static so there to indicate there
 
 	static Location* location;//keep track of player location
 	static list<Item*> inventory;//store items in the player inventory
-	static int steps;//track number of steps taken
 
 public:
+	static int steps;//track number of steps taken
 	~Player();
 	static void changeLocation(Location* loc);
 	static Location *getLocation();
