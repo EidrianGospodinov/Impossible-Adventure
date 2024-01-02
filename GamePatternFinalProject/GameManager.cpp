@@ -61,23 +61,25 @@ void GameManager::checkSoloKeyword(string keyWord) {
 		GameManager::stopGame();
 	}
 	else if (keyWord == "NORTH") {
-		Item *l=location->getKey(keyWord);
-		l->getName();
+		Item *keyItem=location->getKey(keyWord);
+		Location* locationTowards = location->getConnection(keyWord);
+		
+		
 	}
 	else if (keyWord == "SOUTH") {
-
+		location->getKey(keyWord);
 	}
 	else if (keyWord == "EAST") {
-
+		location->getKey(keyWord);
 	}
 	else if (keyWord == "WEST") {
-
+		location->getKey(keyWord);
 	}
 	else if (keyWord == "IN") {
-
+		location->getKey(keyWord);
 	}
 	else if (keyWord == "OUT") {
-
+		location->getKey(keyWord);
 	}
 	else
 		cout << keyWord<<" is an invalid Command! \n";

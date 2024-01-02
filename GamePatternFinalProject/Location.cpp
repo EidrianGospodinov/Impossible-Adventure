@@ -1,4 +1,5 @@
 #include "Location.h"
+#include "InputFile.h"
 
 
 
@@ -74,6 +75,12 @@ Item* Location::getKey(string& direction)
 
 Location* Location::getConnection(string& direction)
 {
-	
-	return nullptr;
+		for (auto i : InputFile::allLocations)
+		{
+			if (connections[direction] == i->number) 
+				return i;
+			
+		}
+		cout << "You can not travel in this direction: " << direction << endl;
+		return nullptr;
 }

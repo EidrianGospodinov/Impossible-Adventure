@@ -1,5 +1,7 @@
 #include "InputFile.h"
 
+list<Location*>InputFile::allLocations;
+
 InputFile::InputFile(string fName): fileName(fName),file(fName)
 {
 	if (!file.is_open())//check if the file can not be opened, the following message is diplayed
@@ -152,7 +154,7 @@ list<Item*> InputFile::qwer()
 
 bool InputFile::searchDirection(string direction)
 {
-	for(auto i: listOfDirections)
+	for(string i: listOfDirections)
 		if (i == direction) {
 			return true;
 		}

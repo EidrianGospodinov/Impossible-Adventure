@@ -15,6 +15,7 @@ using std::list;
 
 class InputFile
 {
+	
 	string fileName;
 	ifstream file;//declare ifstream file
 
@@ -23,7 +24,6 @@ class InputFile
 	Item* keyItem=nullptr;
 	list<Item*> contents;
 	list<Item*>allItems;
-	list<Location*>allLocations;
 
 	bool newBlock = false;
 	string line;
@@ -42,6 +42,7 @@ class InputFile
 	void setInput();
 	Item* findItem(string temp);
 public:
+	static list<Location*>allLocations;
 	list<Item*>qwer();
 	list<Location*>locqwe();
 	InputFile(string fName);
