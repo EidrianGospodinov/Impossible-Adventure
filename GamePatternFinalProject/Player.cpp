@@ -61,7 +61,7 @@ bool Player::dropItem(Item* i)
     //drop a specific item from player inventory
     if (hasItem(i))
     {
-        location->drop_item(i);
+        
         inventory.remove(i);
     }
     return Player::hasItem(i);

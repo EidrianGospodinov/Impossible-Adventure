@@ -121,6 +121,7 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 			if (i->getName() == keyItem) {
 				cout << "item dropped: " << keyItem << endl;
 				Player::dropItem(i);
+				location->drop_item(i);
 				
 			}
 		}
