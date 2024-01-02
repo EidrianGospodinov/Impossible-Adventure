@@ -61,7 +61,8 @@ void GameManager::checkSoloKeyword(string keyWord) {
 		GameManager::stopGame();
 	}
 	else if (keyWord == "NORTH") {
-
+		Item *l=location->getKey(keyWord);
+		l->getName();
 	}
 	else if (keyWord == "SOUTH") {
 

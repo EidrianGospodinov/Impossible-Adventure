@@ -67,8 +67,8 @@ void Location::drop_item(Item* i)
 
 Item* Location::getKey(string& direction)
 {
-
-	
+	if(key_items.count(direction))
+	return key_items[direction];
 	return nullptr;
 }
 
