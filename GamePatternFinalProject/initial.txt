@@ -1,4 +1,4 @@
-Item: Red key
+Item: Red Key
 Description: a key thats red
 
 Item: Letter
@@ -6,6 +6,9 @@ Description: paper with the shuffeld alpabet on it
 
 Item: Screwdriver
 Description: A sturdy box. It has seen better times.
+
+Item: Rubber Duck
+Description: A duck made of rubber
 
 Item: Strongbox
 Description: A sturdy box. It has seen better times.

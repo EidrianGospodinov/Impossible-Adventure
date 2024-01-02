@@ -8,6 +8,7 @@ void Location::print()
 
 	for (Item* i : contents) {
 		//print the name of each item on this location
+		if(i!=nullptr)
 		std::cout << i->getName() << "\t";
 		
 	}

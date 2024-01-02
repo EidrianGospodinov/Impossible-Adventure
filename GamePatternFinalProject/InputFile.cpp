@@ -7,6 +7,11 @@ InputFile::InputFile(string fName): fileName(fName),file(fName)
 	//cerr does the same thing as cout but its imediatly displayed in the console
 }
 
+list<Location*> InputFile::locqwe()
+{
+	return allLocations;
+}
+
 void InputFile::readFile()
 {
 	
@@ -121,19 +126,22 @@ void InputFile::setInput()
 	}
 	else if (line.find("Contents:") != std::string::npos) {
 
-		temp = line.substr(9);
+		temp = line.substr(10);//it was 9 before
 		string tempItem;
 		int i = 0;
 		while (temp[i] != '\0') {
+
 			if (temp[i] == ',') {
 				contents.push_back(findItem(tempItem));
-				tempItem = " ";
-				i++;
+				tempItem = "";
+				i += 2;
 			}
 			tempItem += temp[i];
 
 			i++;
 		}
+		
+		contents.push_back(findItem(tempItem));
 
 	}
 }
@@ -149,6 +157,7 @@ void InputFile::processInputLocation()
 	Location* location = new Location(numberOfLocation, name, description, contents);
 	if (numberOfLocation == 1)
 		Player::changeLocation(location);
+	allLocations.push_back(location);
 }
 
 void InputFile::clearVariables()

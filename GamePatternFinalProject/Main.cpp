@@ -172,7 +172,13 @@ int main() {
 		*/
 		
 		
+		
 
 
 	}
+	/*for (auto i : file.locqwe()) {
+		cout << i->getName() << endl;
+		i->print();
+		cout << endl << endl << endl;
+	}*/
 }

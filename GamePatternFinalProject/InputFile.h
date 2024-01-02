@@ -23,6 +23,8 @@ class InputFile
 	Item* keyItem=nullptr;
 	list<Item*> contents;
 	list<Item*>allItems;
+	list<Location*>allLocations;
+
 	bool newBlock = false;
 	string line;
 	string keyword;
@@ -37,6 +39,7 @@ class InputFile
 	Item* findItem(string temp);
 public:
 	list<Item*>qwer();
+	list<Location*>locqwe();
 	InputFile(string fName);
 	void readFile();
 	
