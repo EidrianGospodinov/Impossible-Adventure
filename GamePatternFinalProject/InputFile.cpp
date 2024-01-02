@@ -194,5 +194,7 @@ void InputFile::clearVariables()
 	description = " ";
 	contents.clear();
 	keyItem = nullptr;
+	keyItemsMap.clear();
+	connectionsMap.clear();
 	
 }
