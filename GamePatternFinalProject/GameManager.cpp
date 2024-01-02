@@ -53,6 +53,8 @@ void GameManager::splitWord(string input) {
 
 
 void GameManager::checkSoloKeyword(string keyWord) {
+	Item* keyItem=nullptr;
+	Location* locationTowards=nullptr;
 	if (keyWord == "LOOK") {
 		location->print();
 	}
@@ -61,29 +63,45 @@ void GameManager::checkSoloKeyword(string keyWord) {
 		GameManager::stopGame();
 	}
 	else if (keyWord == "NORTH") {
-		Item *keyItem=location->getKey(keyWord);
-		Location* locationTowards = location->getConnection(keyWord);
+		keyItem=location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
 		
 		
 	}
 	else if (keyWord == "SOUTH") {
-		location->getKey(keyWord);
+
+		keyItem = location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
 	}
 	else if (keyWord == "EAST") {
-		location->getKey(keyWord);
+
+		keyItem = location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
 	}
 	else if (keyWord == "WEST") {
-		location->getKey(keyWord);
+
+		keyItem = location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
 	}
 	else if (keyWord == "IN") {
-		location->getKey(keyWord);
+
+		keyItem = location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
 	}
 	else if (keyWord == "OUT") {
-		location->getKey(keyWord);
+
+		keyItem = location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
 	}
 	else
 		cout << keyWord<<" is an invalid Command! \n";
-
+	if (locationTowards != nullptr) {
+		if (keyItem != nullptr) {
+		if(Player::hasItem(keyItem))
+		Player::changeLocation(locationTowards);
+		}else
+			Player::changeLocation(locationTowards);
+	}
 }
 void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 	if (keyWord == "TAKE") {
