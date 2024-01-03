@@ -1,5 +1,5 @@
 #include "Player.h"
-//dont forget to implement the static members if you dont want to have random errors
+// Static members initialization
 list<Item*> Player::inventory;
 Location* Player::location = nullptr;
 int Player::steps;
@@ -7,29 +7,30 @@ int Player::steps;
 
 
 
+// Destructor implementation
 Player::~Player()
 {
+    // Deleting the player instance; consider using 'delete this' only if Player is heap-allocated
     delete(this);
 }
 
+// Method to change the player's location
 void Player::changeLocation(Location* loc)
 {
     if (loc != nullptr)
-    location = loc;
+        location = loc;
 }
 
-
-
-Location *Player::getLocation()
+// Method to get the current player location
+Location* Player::getLocation()
 {
     return location;
 }
 
+// Method to get the player's inventory
 list<Item*> Player::getInventory()
 {
-    
-        return inventory;
-    
+    return inventory;
 }
 
 bool Player::hasItem(Item* i)
@@ -38,10 +39,11 @@ bool Player::hasItem(Item* i)
     for (Item* x : inventory)
     {
         if (i != nullptr)
-            if (x == i)
+            if (x == i)//check if the names of x and i are the same
                return true;
     }
-    //check if the names of x and i are the same
+    
+        // Return false if the item is not found
     return false;
 }
 
@@ -61,7 +63,7 @@ bool Player::dropItem(Item* i)
     //drop a specific item from player inventory
     if (hasItem(i))
     {
-        
+        //removes item from inventory
         inventory.remove(i);
     }
     return Player::hasItem(i);

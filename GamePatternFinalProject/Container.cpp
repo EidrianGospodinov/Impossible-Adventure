@@ -22,13 +22,14 @@ bool Container::open()
 
 }
 
+//in the constructor we call the item contstructor for all the coomon item and get the rest on its own
 Container::Container(string name, string descr, Item* item, list<Item*> cont): Item(name,descr),key_item(item),contents(cont)
 {
 }
 
 Container::~Container()
 {
-    delete(this);
+    delete(this);//delete item
 }
 
 void Container::addToInventory()
@@ -46,5 +47,5 @@ void Container::addToInventory()
 
 bool Container::isContainer()
 {
-    return true;
+    return true;//if the item is overriden by the container it returns false
 }

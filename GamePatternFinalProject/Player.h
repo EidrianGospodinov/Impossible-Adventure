@@ -20,7 +20,9 @@ class Player//all the members of the class are static so there to indicate there
 
 public:
 	static int steps;//track number of steps taken
-	~Player();
+	~Player(); // Destructor to clean up player instance
+
+	// Static methods for interacting with the player
 	static void changeLocation(Location* loc);
 	static Location *getLocation();
 	static list<Item*>getInventory();

@@ -21,15 +21,18 @@ class Location
 	string description;//description of the location
 	list<Item*> contents;//all items inside the location
 
-	map<string, Item*> key_items;//not sure about this 2
-	map<string, int> connections;
+	map<string, Item*> key_items;//a map that hold the item needed and direction to move in said direction
+	map<string, int> connections;//a map that hold the number of location the direction needed to go to that direction
 
 public:
-	//contructor
-	list<Item*>getContents();
-	string getName();
+	
+	list<Item*>getContents();//function that return a list to all the items on the location
+	string getName();//returns the name of the location
+
+	//constructor 
 	Location(int defaultLocation, string n, string descr, 
-		list<Item*>cont, map<string, Item*>keyItems, map<string, int>connect);//will add the last 2 later
+		list<Item*>cont, map<string, Item*>keyItems, map<string, int>connect);
+	//destructor
 	~Location();
 	void print();//prints the information about the location
 	bool hasItem(Item* i);//check if an item is present in the location

@@ -1,94 +1,18 @@
 #include<iostream>
-#include<vector>
 
-#include "Item.h"
-#include "Player.h"
-#include "Location.h"
-#include"Container.h"
+
 #include "GameManager.h"
 #include "InputFile.h"
 using std::cout;
-using namespace std;
-
-//notes
-/*
-player function openItem- in progress, no idea what to do
-
-container- open function in progress
-
-location
--getkey and get connection
-
-Executing commands
+using std::getline;
+using std::cin;
 
 
-work on player printstatus- the location print is printing its items as well, which is not needed for the status
-*/
-/*
-void splitWord(string arr) {
-	
-
-	char sep = ' ';
-	int i = 0;
-
-	
-	string keyword;
-	string desc;
-	
-
-	bool iskeyword = true;
-
-	while (arr[i] != '\0')
-	{
-		if (arr[i] == sep && iskeyword != false) {
-			iskeyword = false;
-		}
-
-		else if (iskeyword != false) {
-			keyword += arr[i];
-
-		}
-		else
-		{
-			desc += arr[i];
-		}
-
-		i++;
-	}
-	cout << keyword << endl;
-	if (desc != "")
-		cout << desc;
 
 
-}
-*/
 
-/*
-void checkSoloKeyword(string keyWord, Location* l, Player* p) {
-	if (keyWord == "LOOK") {
-		l->print();
-	}
-	
-	else if (keyWord == "QUIT") {
-		GameManager::stopGame();
-	}
-}
-*/
 
-/*void checkKeywordItem(string keyWord, string itemName, Location* l, Player* p) {
-	
-	 if (keyWord == "TAKE") {
-		//p->takeItem();
-	}
-	else if (keyWord == "DROP") {
 
-	}
-
-	else if (keyWord == "OPEN") {
-
-	}
-	
-}*/
 
 
 
@@ -96,54 +20,13 @@ int main() {
 	
 	//read data
 	string fileName;
-	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"";
+	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"\n";
 	//cin >> fileName;
 	InputFile file("initial.txt");
 	file.readFile();
 	
-
 	
-	
-
-	//test functionallity using the datafile
-
-	//the key for the strongbox
-	//Item* screwDriver = new Item("SCREWDRIVER", "screw");
-
-	//the items inside the strongbox
-	/*Item* redKey = new Item("redKey", "key that is red");
-	Item* letter = new Item("letter", "let");
-	list<Item*>content;
-	content.push_back(redKey);
-	content.push_back(letter);
-
-	Item* Strongbox = new Container("STRONGBOX", "A sturdy box", screwDriver, content);
-	
-	*/
-	//player
-
-	
-	//locations
-	/*list<Item*>loc1Contents;
-	loc1Contents.push_back(Strongbox);
-	loc1Contents.push_back(screwDriver);
-	Location* loc1 = new Location(1, "Outside building", "You are standing in front of a small building.", loc1Contents);*/
-
-
-
-
-	//loc2
-	/*Item* rubberDuck = new Item("rubber duck", "Duck made of rubber");
-	list<Item*> loc2Contents{ rubberDuck };
-	Location* loc2 = new Location(2, "inside Building", "You are inside a building, a well house for a largespring", loc2Contents);
-*/
-
-	//player->changeLocation(loc1);
-
-	
-
-	
-	//game manager
+	//game manager initalisation
 	GameManager game;
 	
 	game.startGame();
@@ -151,16 +34,17 @@ int main() {
 	
 
 
-	while (game.gameOn)
+	while (game.gameOn)//while the game is on keep looping
 	{
-		cout<<std::endl;
-		cout << std::endl;
-		cout << std::endl;
+		//get user input
 		string input;
 		getline(cin, input);
+
+		//process the user input 
 		game.splitWord(input);
 		cout << std::endl;
 		
+		//print the player status
 		Player::printStatus();
 		
 		

@@ -27,6 +27,7 @@ bool Location::hasItem(Item* i)
 	return false;
 }
 
+//constructor that gives all the parameter to the location
 Location::Location(int defaultLocation, string n, string descr, list<Item*> cont,
 	map<string, Item*>keyItems, map<string, int>connect) :number(defaultLocation), name(n),
 		description(descr),contents(cont),key_items(keyItems),connections(connect)
@@ -35,25 +36,26 @@ Location::Location(int defaultLocation, string n, string descr, list<Item*> cont
 
 bool Location::take_item(Item* i)
 {
-	//removes item from the location
+	//removes item from the location, if the item is not null
 	if(i!=nullptr)
 	contents.remove(i);
 	return Location::hasItem(i);
 }
 
+//delete location when removed
 Location::~Location()
 {
 	delete(this);
 }
 
-string Location::getName()
+string Location::getName()//return the name of the location
 {
 	if (this != nullptr)
 	return name;
 	
 }
 
-list<Item*> Location::getContents()
+list<Item*> Location::getContents()//return all the contents of the location
 {
 	return contents;
 }
@@ -68,19 +70,20 @@ void Location::drop_item(Item* i)
 
 Item* Location::getKey(string& direction)
 {
-	if(key_items.count(direction))
-	return key_items[direction];
-	return nullptr;
+	if(key_items.count(direction))//if the direction excist on the map with the given direction 
+	return key_items[direction];//return the item
+	return nullptr;//if not return nullptr
 }
 
-Location* Location::getConnection(string& direction)
+Location* Location::getConnection(string& direction)//get location this direction leads to
 {
 		for (auto i : InputFile::allLocations)
 		{
-			if (connections[direction] == i->number) 
+			if (connections[direction] == i->number) //if the location is the same return the location
 				return i;
 			
 		}
 		cout << "You can not travel in this direction: " << direction << endl;
+		//inform the player that he wont be able to move in that direction
 		return nullptr;
 }

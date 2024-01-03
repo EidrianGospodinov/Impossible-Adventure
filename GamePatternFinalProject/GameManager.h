@@ -7,18 +7,19 @@ using std::cout;
 using std::endl;
 class GameManager
 {
-	Location *location= Player::getLocation();
+	Location *location= Player::getLocation();//pointer to the current postion
 	
 public:
+
 	
-	static bool gameOn;
-	static void startGame();
-	static void stopGame();
-	void splitWord(string input);
-	void checkSoloKeyword(string keyWord);
-	void checkKeywordItem(string keyWord, string keyItem);
-	void updateLocation();
+	static bool gameOn;  // Static flag indicating whether the game is running
+	static void startGame();  // Static method to start the game
+	static void stopGame();  // Static method to stop the game
+	void splitWord(string input);  // Method to split user input and process commands
+	void checkSoloKeyword(string keyWord);  // Method to check and process single-word commands
 	
+	void checkKeywordItem(string keyWord, string keyItem);  // Method to check and process commands with an associated item
+	void updateLocation();  // Method to update the GameManager's location based on the player's location
 	
 	
 	
