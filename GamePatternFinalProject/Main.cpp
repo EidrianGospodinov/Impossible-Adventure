@@ -22,7 +22,7 @@ int main() {
 	string fileName;
 	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"\n";
 	//cin >> fileName;
-	InputFile file("initial.txt");
+	InputFile file("Game Scenario.txt");
 	file.readFile();
 	
 	
@@ -36,6 +36,7 @@ int main() {
 
 	while (game.gameOn)//while the game is on keep looping
 	{
+		cout << endl;
 		//get user input
 		string input;
 		getline(cin, input);
@@ -45,7 +46,7 @@ int main() {
 		cout << std::endl;
 		
 		//print the player status
-		Player::printStatus();
+		//Player::printStatus();
 		
 		
 		

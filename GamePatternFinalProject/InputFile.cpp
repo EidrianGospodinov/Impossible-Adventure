@@ -129,6 +129,7 @@ void InputFile::setInput()//set the description and contents wheb the keyword in
 	else if (line.find("Contents:") != std::string::npos) {
 
 		temp = line.substr(10);//same logic as above
+		
 		string tempItem;
 		int i = 0;
 		while (temp[i] != '\0') {

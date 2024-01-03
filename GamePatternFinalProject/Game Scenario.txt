@@ -1,0 +1,77 @@
+Item: Red Key
+Description: A key that's red.
+
+Item: Chest Key
+Description: A key that can open THE Chest.
+
+Item: Letter
+Description: Paper with the shuffled alphabet on it.
+
+Item: Screwdriver
+Description: A versatile screwdriver tool.
+
+Item: Map
+Description: A detailed map of the surrounding areas with a bix X on it indicating the lost trasure.
+
+Item: Shovel
+Description: A trusty shovel that do wondender in wild.
+
+Item: Lantern
+Description: A lantern to light your way.
+
+Item: Gold
+Description: More gold than you can count
+
+Item: Strongbox
+Description: A sturdy box. It has seen better times.
+Contents: Red Key, Shovel
+Keys: Screwdriver
+
+Item: Chest
+Description: An old wooden chest with life forgotter treasure.
+Contents: Gold
+Keys: Chest Key
+
+Location: 1
+Name: Outside building
+Description: You are standing in front of a small building.
+Contents: Screwdriver, Strongbox
+WEST 3
+IN 2, Red Key
+
+Location: 2
+Name: Inside building
+Description: You are inside a building, a well house for a large spring.
+Contents: Map
+OUT 1
+
+Location: 3
+Name: Forest Path
+Description: A narrow path through a dense forest.
+Contents: Lantern
+SOUTH 4
+EAST 1
+
+Location: 4
+Name: Mountain Base
+Description: The base of a rocky mountain.
+Contents: Letter
+NORTH 3
+Ascend 5
+UP 5
+IN 6, Shovel
+
+Location: 5
+Name: Mountain Peak
+Description: A breathtaking view from the top of the mountain.
+Contents: Chest Key
+Decend 4
+DOWN 4
+
+Location: 6
+Name: Hidden Cave
+Description: A mysterious cave entrance.
+Contents: Chest
+OUT 4
+
+.
