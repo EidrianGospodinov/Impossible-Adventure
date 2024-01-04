@@ -32,7 +32,7 @@ class InputFile
 	map<string, Item*>keyItemsMap;
 	map<string, int>connectionsMap;
 
-	list<string>listOfDirections{ "NORTH","SOUTH","EAST","WEST","IN","OUT" };//list of all directions
+	list<string>listOfDirections{ "NORTH","SOUTH","EAST","WEST","IN","OUT","UP","DOWN"};//list of all directions
 		
     // Check if the direction is valid
     bool searchDirection(string direction);

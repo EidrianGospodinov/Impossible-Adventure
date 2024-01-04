@@ -173,6 +173,7 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 				if (Player::openItem(i)) {
 					Player::dropItem(i);//after the container is open, its no longer needed so we drop it
 					cout << "item openned: " << keyItem << endl;
+					
 				}
 				
 			}

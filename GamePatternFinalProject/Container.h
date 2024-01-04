@@ -11,6 +11,8 @@ class Container: public Item
 	
 	void addToInventory();//private function that is used inside the open function to add to the inventory the content of the container if successfull
 public:
+	
+
 	bool isContainer();//overrides the base class item
 	bool isOpened=false;//tracks if the container is opened
 	bool open() override;//function to open the container, returns true if successfull 
@@ -18,6 +20,8 @@ public:
 	//constructor
 	Container(string name,string descr,Item *item, list<Item*>cont);
 	//destructor
-	~Container();//deletes the ptr of the container when its not longer needed
+	~Container();
+	//deletes the ptr of the container when its not longer needed
+	
 };
 
