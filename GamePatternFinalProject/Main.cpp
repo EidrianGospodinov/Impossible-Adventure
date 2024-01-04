@@ -32,30 +32,33 @@ int main() {
 	
 	game.startGame();
 	
-	
+	//instructions for the user
+	cout << "Hello adventurer\n";
+	cout << "Welcome to our world! Here are some basic commands you can use:\n\n";
+
+	cout << "- TAKE [item]: Add an item to your inventory.\n";
+	cout << "- DROP [item]: Remove an item from your inventory.\n";
+	cout << "- OPEN [item]: Attempt to open a container\n";
+	cout << "- EXAMINE [item]: Get more information about the item\n";
+	cout << "- LOOK: Observe your surroundings for more details.\n";
+	cout << "- QUIT: End your adventure.\n\n";
+
+	cout << "For movement, check room descriptions for available DIRECTIONS such as:\n";
+	cout << "NORTH, SOUTH, EAST, WEST, UP, DOWN, IN, and OUT.\n\n";
+
+	cout << "Just remebmer that the commands are all in capitals\n";
+	cout << "And the keyword are with the first letter in capital\n\n";
+
+	cout << "If you have succesfully done an action, you would recieve a verification \n";
+	cout << "If not assume you have not!\n\n";
+
+	cout << "Good luck on your journey!\n\n";
 
 
 	while (game.gameOn)//while the game is on keep looping
 	{
 
-		//instructions for the user
-		cout << "Hello adventurer\n";
-		cout << "Welcome to our world! Here are some basic commands you can use:\n\n";
-
-		cout << "- TAKE [item]: Add an item to your inventory.\n";
-		cout << "- DROP [item]: Remove an item from your inventory.\n";
-		cout << "- OPEN [item]: Attempt to open a container\n";
-		cout << "- EXAMINE [item]: Get more information about the item\n";
-		cout << "- LOOK: Observe your surroundings for more details.\n";
-		cout << "- QUIT: End your adventure.\n\n";
-
-		cout << "For movement, check room descriptions for available DIRECTIONS such as:\n";
-		cout << "NORTH, SOUTH, EAST, WEST, UP, DOWN, IN, and OUT.\n\n";
-
-		cout << "Just dont that the commands are all in capitals\n";
-		cout << "And the keyword are with the first letter in capital\n\n";
-
-		cout << "Good luck on your journey!\n\n";
+		
 		
 		//get user input
 		string input;
@@ -64,9 +67,9 @@ int main() {
 		//process the user input 
 		game.splitWord(input);
 		cout << std::endl;
+		cout << "Steps taken: " << Player::steps<<endl;
 		
-		//print the player status
-		//Player::printStatus();
+		
 		
 		
 		

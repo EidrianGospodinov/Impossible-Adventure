@@ -103,6 +103,16 @@ void GameManager::checkSoloKeyword(string keyWord) {
 		keyItem = location->getKey(keyWord);
 		locationTowards = location->getConnection(keyWord);
 	}
+	else if (keyWord == "UP") {
+
+		keyItem = location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
+	}
+	else if (keyWord == "DOWN") {
+
+		keyItem = location->getKey(keyWord);
+		locationTowards = location->getConnection(keyWord);
+	}
 	else
 		cout << keyWord<<" is an invalid Command! \n";
 	//if the keyword is not one of the known return invalid
@@ -113,7 +123,9 @@ void GameManager::checkSoloKeyword(string keyWord) {
 				Player::changeLocation(locationTowards);//moves to the new direction
 				Player::steps++;//update step counter
 
-		}
+			}
+			else
+				cout << "You dont have the required item to access the location: " << keyItem << endl;
 		}
 		else {//if there is no provided item then you can go to the location
 			Player::changeLocation(locationTowards);
@@ -121,6 +133,8 @@ void GameManager::checkSoloKeyword(string keyWord) {
 
 		}
 	}
+	else
+		cout << "You can not travel to that direction from here! ";
 	
 }
 // Method to check and process commands with an associated item
