@@ -13,6 +13,11 @@ void Location::print()
 		std::cout << i->getName() << "\t";
 		
 	}
+	std::cout<<endl << "And here is a list of all The directions you can take from here:" << endl;
+	for (auto i = key_items.begin();
+		i != key_items.end(); ++i)
+		cout << i->first<<endl;
+
 }
 
 bool Location::hasItem(Item* i)

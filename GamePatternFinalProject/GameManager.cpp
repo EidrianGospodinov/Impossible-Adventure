@@ -136,6 +136,8 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 				
 				
 			}
+		
+
 		}
 	}
 	else if (keyWord == "DROP") {
@@ -146,6 +148,8 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 				location->drop_item(i);
 				
 			}
+		
+
 		}
 	}
 
@@ -156,9 +160,18 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 					Player::dropItem(i);//after the container is open, its no longer needed so we drop it
 					cout << "item openned: " << keyItem << endl;
 				}
+				
 			}
 		}
 
+	}
+	else if (keyWord == "EXAMINE") {//examine keyword check if the description of item
+		for (auto i : Player::getInventory()) {
+			if (i->getName() == keyItem) {
+				cout<<i->getName()<<" is " << i->getDescription();
+			}
+			
+		}
 	}
 	else
 		cout <<keyItem <<" is an invalid Command! \n";//tell the player that the command is invalide
