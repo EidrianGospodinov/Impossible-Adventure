@@ -69,7 +69,7 @@ int main() {
 		cout << std::endl;
 		cout << "Steps taken: " << Player::steps<<endl;
 		
-		cout << "Player Status: \n\n";
+		cout << "\nPlayer Status: \n";
 		Player::printStatus();
 		cout<<"\n\n";
 		
