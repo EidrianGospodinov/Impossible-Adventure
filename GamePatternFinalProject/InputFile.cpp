@@ -39,7 +39,7 @@ void InputFile::readFile()
 
 
 		if(newBlock == false) {//every time there is an empty line the newblock is true
-			//indicationg that we are moving from one instance to another
+			//indicationg that we are moving from one block to another
 			
 			if (keyword == "Item") {
 				setInput();//the input is for description and contents 
@@ -105,6 +105,8 @@ void InputFile::readFile()
 
 	// Close the file
 	file.close();
+	processInputLocation();//the process is happening when we excit the block.
+	//so we end up not processing the last location
 }
 
 

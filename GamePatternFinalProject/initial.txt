@@ -30,4 +30,3 @@ Contents: Rubber Duck
 SOUTH 1
 OUT 1
 
-.

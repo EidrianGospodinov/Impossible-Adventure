@@ -64,7 +64,7 @@ IN 6, Shovel
 Location: 5
 Name: Mountain Peak
 Description: A breathtaking view from the top of the mountain.
-Contents: Chest Key
+Contents: Chest Key, Shovel
 Decend 4
 DOWN 4
 
@@ -73,5 +73,3 @@ Name: Hidden Cave
 Description: A mysterious cave entrance.
 Contents: Chest
 OUT 4
-
-.

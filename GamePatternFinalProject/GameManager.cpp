@@ -125,16 +125,21 @@ void GameManager::checkSoloKeyword(string keyWord) {
 
 			}
 			else
-				cout << "You dont have the required item to access the location: " << keyItem << endl;
+				cout << "You dont have the required item to access the location: " << keyItem->getName() << endl;
 		}
 		else {//if there is no provided item then you can go to the location
 			Player::changeLocation(locationTowards);
 			Player::steps++;
 
 		}
+		if (Player::steps > 10) {//if the player has moved more than 10 times, he loses
+			stopGame();
+			cout << "You excieded the maximum steps\n";
+			cout << "\t YOU LOST!";
+		}
 	}
-	else
-		cout << "You can not travel to that direction from here! ";
+	/*else
+		cout << "You can not travel to that direction from here! ";*/
 	
 }
 // Method to check and process commands with an associated item
@@ -173,6 +178,9 @@ void GameManager::checkKeywordItem(string keyWord, string keyItem) {
 				if (Player::openItem(i)) {
 					Player::dropItem(i);//after the container is open, its no longer needed so we drop it
 					cout << "item openned: " << keyItem << endl;
+					if (keyItem == "Chest") {
+						cout << "Congratulations!\n YOU HAVE WON!";
+					}
 					
 				}
 				
