@@ -6,33 +6,47 @@
 using std::cout;
 using std::getline;
 using std::cin;
+//defines the file name the game will read
+#define FileName "Game Scenario.txt" //change if you want to play with a different scenario
 
 
-
-
-
-
-
-
-
-
+void instructions();
 int main() {
 	
 	//read data
-	string fileName;
-	cout << "Enter the file name you want to use! \n if you dont have one use \" initial.txt\"\n";
-	//cin >> fileName;
-	InputFile file("Game Scenario.txt");
-	//InputFile file("initial.txt");
+	InputFile file(FileName);//name of the file
 	file.readFile();
-	//cout << "\n\n";
 	
 	
 	//game manager initalisation
 	GameManager game;
 	
-	game.startGame();
+	game.startGame();//starting the game
 	
+	instructions();//Call the instruction function
+
+
+	while (game.gameOn)//while the game is on keep looping
+	{
+
+		//get user input
+		string input;
+		getline(cin, input);
+
+		cout << "Steps taken: " << Player::steps<<endl;//Tells the user how many steps he has taken
+		//process the user input 
+		game.splitWord(input);
+		cout << std::endl;
+		cout << "\n\n";
+
+
+
+	}
+	
+}
+
+void instructions()
+{
 	//instructions for the user
 	cout << "Hello adventurer\n";
 	cout << "Welcome to our world! Here are some basic commands you can use:\n\n";
@@ -54,26 +68,7 @@ int main() {
 	cout << "If not assume you have not!\n\n";
 
 	cout << "Your goal is to reach a cave under the Mountain\n"
-		 << "and retrive the lost treasure inside a chest!\n\n";
+		<< "and retrive the lost treasure inside the chest!\n\n";
 
 	cout << "Good luck on your journey!\n\n";
-
-
-	while (game.gameOn)//while the game is on keep looping
-	{
-
-		//get user input
-		string input;
-		getline(cin, input);
-
-		cout << "Steps taken: " << Player::steps<<endl;//Tells the user how many steps he has taken
-		//process the user input 
-		game.splitWord(input);
-		cout << std::endl;
-		cout << "\n\n";
-
-
-
-	}
-	
 }
