@@ -24,6 +24,7 @@
     <ProjectGuid>{fae8d14a-4065-49fd-8c41-25dcf330d9d9}</ProjectGuid>
     <RootNamespace>GamePatternFinalProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Impossible Adventure</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
